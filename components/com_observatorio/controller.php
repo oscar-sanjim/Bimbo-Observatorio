@@ -16,8 +16,42 @@ defined('_JEXEC') or die('Restricted access');
 class ObservatorioController extends JControllerLegacy
 {
 
+    public function loginUser()
+    {
+        $username = $_POST["email"];
+        $password = $_POST["password"];
+
+        $app = JFactory::getApplication();
+        $credentials = array();
+        $credentials['username'] = $username;
+        $credentials['password'] = $password;
+
+        if ($app->login($credentials) == false) {
+            // Login failed !
+            $app->redirect(JRoute::_('index.php?result=false', false));
+
+        }else{
+            $app->redirect(JRoute::_('index.php?result=true', false));
+
+        }
+    }
 
 
+    public function logOutUser()
+    {
+        // Check if the user is logged in already.
+        $app = JFactory::getApplication();
+        $user = JFactory::getUser();
+
+        if($user->id) {
+            $app = JFactory::getApplication();
+            $app->logout($user->id, array());
+
+        }
+
+        echo "Out";
+        die;
+    }
 }
 
 

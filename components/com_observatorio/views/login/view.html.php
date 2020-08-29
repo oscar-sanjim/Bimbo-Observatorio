@@ -26,7 +26,13 @@ class ObservatorioViewLogin extends JViewLegacy
      */
     function display($tpl = null)
     {
+        // Check if the user is logged in already.
+        $user = JFactory::getUser();
 
+        if(($user->id)) {
+            $app = JFactory::getApplication();
+            $app->redirect(JRoute::_(JURI::base().'panel', false));
+        }
 
         // Display the view
         parent::display($tpl);

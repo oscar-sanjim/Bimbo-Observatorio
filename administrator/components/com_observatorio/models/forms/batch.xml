@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fieldset>
+        <field
+                name="id"
+                type="hidden"
+        />
+
+        <input type='hidden' name='MAX_FILE_SIZE' value='10000000000000' />
+
+        <field
+                name="year"
+                type="integer"
+                default="2020"
+                label="Seleccione un año"
+                description="Año"
+                first="2000"
+                last="2099"
+                step="1"
+                required="required"
+        />
+
+        <field name="trimester" type="list" default="" label="Seleccione un Trimestre" description="" required="required">
+            <option value="1">Ene - Mar</option>
+            <option value="2">Abr - Jun</option>
+            <option value="3">Jul - Sep</option>
+            <option value="4">Oct - Dic</option>
+        </field>
+
+
+        <field name="file_upload"
+               type="file"
+               label="Seleccione un archivo"
+               description="Choose an image from your computer with maximum 100KB"
+               />
+
+        <field name="file_path"
+               type="hidden"
+        />
+        <field name="total_records"
+               type="hidden"
+        />
+        <field name="register_datetime"
+               type="hidden"
+        />
+
+
+    </fieldset>
+</form>
