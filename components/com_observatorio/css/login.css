@@ -1,3 +1,76 @@
+@font-face {
+  font-family: "Montserrat";
+  src: url("../fonts/Montserrat-Regular.ttf");
+}
+@font-face {
+  font-family: "Open Sans";
+  src: url("../fonts/OpenSans-Regular.ttf");
+}
+@font-face {
+  font-family: "Open Sans";
+  src: url("../fonts/OpenSans-Bold.ttf");
+  font-weight: bold;
+}
+/* The container */
+.checkbox-container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-family: "Open Sans", sans-serif;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  line-height: 27px;
+  letter-spacing: 1px;
+  /* Hide the browser's default checkbox */
+  /* Create a custom checkbox */
+  /* On mouse-over, add a grey background color */
+  /* When the checkbox is checked, add a blue background */
+  /* Create the checkmark/indicator (hidden when not checked) */
+  /* Show the checkmark when checked */
+  /* Style the checkmark/indicator */
+}
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+.checkbox-container .checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: #FFFFFF;
+  border: 1px solid #011058;
+}
+.checkbox-container .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+.checkbox-container input:checked ~ .checkmark:after {
+  display: block;
+}
+.checkbox-container .checkmark:after {
+  left: 7px;
+  top: 3px;
+  width: 5px;
+  height: 10px;
+  border: solid #011058;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
 body {
   background-color: darkgray;
 }
@@ -5,6 +78,8 @@ body {
 .login-page-container {
   height: 100vh;
   width: 100vw;
+  background-image: url("../images/home-bg.png");
+  background-size: cover;
 }
 .login-page-container .content-limiter {
   width: 95%;
@@ -22,6 +97,14 @@ body {
   width: 100%;
   text-align: center;
 }
+.login-page-container .content-limiter .form-container .logo-container {
+  width: 90%;
+  max-width: 270px;
+  margin: 0 auto 55px;
+}
+.login-page-container .content-limiter .form-container .logo-container img {
+  width: 100%;
+}
 .login-page-container .content-limiter .form-container form {
   margin-bottom: 10px;
 }
@@ -29,7 +112,7 @@ body {
   border-bottom: 1px solid white;
   max-width: 360px;
   width: 100%;
-  margin: 0 auto 10px;
+  margin: 0 auto 12px;
 }
 .login-page-container .content-limiter .form-container form .input-container img {
   display: inline-block;
@@ -46,6 +129,9 @@ body {
   color: white;
   line-height: 40px;
   padding-left: 15px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  letter-spacing: 2px;
 }
 .login-page-container .content-limiter .form-container form .input-container input:focus {
   outline: none;
@@ -64,12 +150,17 @@ body {
   border: 0;
   border-radius: 5px;
   color: white;
-  font-size: 24px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 22px;
   padding: 10px 0;
+  letter-spacing: 2px;
 }
 .login-page-container .content-limiter .lost-password {
+  font-family: "Montserrat", sans-serif;
   color: white;
   cursor: pointer;
+  font-size: 14px;
+  letter-spacing: 2px;
 }
 
 /*# sourceMappingURL=login.css.map */

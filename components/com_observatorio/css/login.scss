@@ -7,6 +7,8 @@ body {
 .login-page-container {
   height: 100vh;
   width: 100vw;
+  background-image: url('../images/home-bg.png');
+  background-size: cover;
 
   .content-limiter {
     width: 95%;
@@ -24,6 +26,16 @@ body {
       width: 100%;
       text-align: center;
 
+      .logo-container{
+        width: 90%;
+        max-width: 270px;
+        margin: 0 auto 55px;
+
+        img{
+          width: 100%;
+        }
+      }
+
       form {
         margin-bottom: 10px;
 
@@ -31,7 +43,7 @@ body {
           border-bottom: 1px solid white;
           max-width: 360px;
           width: 100%;
-          margin: 0 auto 10px;
+          margin: 0 auto 12px;
 
 
           img {
@@ -51,6 +63,9 @@ body {
             color: white;
             line-height: 40px;
             padding-left: 15px;
+            font-family: "Montserrat", sans-serif;
+            font-size: 18px;
+            letter-spacing: 2px;
 
             &:focus {
               outline: none;
@@ -70,15 +85,22 @@ body {
           border: 0;
           border-radius: 5px;
           color: white;
-          font-size: 24px;
+          font-family: "Montserrat", sans-serif;
+          font-size: 22px;
           padding: 10px 0;
+          letter-spacing: 2px;
+
         }
       }
     }
 
     .lost-password{
+      font-family: "Montserrat", sans-serif;
       color: white;
       cursor: pointer;
+      font-size: 14px;
+      letter-spacing: 2px;
+
     }
   }
 }

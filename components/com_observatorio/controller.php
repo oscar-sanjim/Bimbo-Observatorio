@@ -49,7 +49,7 @@ class ObservatorioController extends JControllerLegacy
 
         }
 
-        echo "Out";
+        $app->redirect(JURI::base());
         die;
     }
 }

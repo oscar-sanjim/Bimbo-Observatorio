@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 480 480" style="enable-background:new 0 0 480 480;" xml:space="preserve" width="512px" height="512px" class=""><g><g>
+	<g>
+		<circle cx="128" cy="376" r="16" data-original="#000000" class="active-path" data-old_color="#000000" fill="#002269"/>
+	</g>
+</g><g>
+	<g>
+		<circle cx="352" cy="376" r="16" data-original="#000000" class="active-path" data-old_color="#000000" fill="#002269"/>
+	</g>
+</g><g>
+	<g>
+		<path d="M424,72h-64V32c0-4.418-3.582-8-8-8s-8,3.582-8,8v40H136V32c0-4.418-3.582-8-8-8s-8,3.582-8,8v40H56    C25.087,72.035,0.035,97.087,0,128v272c0.035,30.913,25.087,55.965,56,56h368c30.913-0.035,55.965-25.087,56-56V128    C479.965,97.087,454.913,72.035,424,72z M464,400c-0.026,22.08-17.92,39.974-40,40H56c-22.08-0.026-39.974-17.92-40-40V200h448    V400z M464,184H16v-56c0.026-22.08,17.92-39.974,40-40h64v40c0,4.418,3.582,8,8,8s8-3.582,8-8V88h208v40c0,4.418,3.582,8,8,8    s8-3.582,8-8V88h64c22.08,0.026,39.974,17.92,40,40V184z" data-original="#000000" class="active-path" data-old_color="#000000" fill="#002269"/>
+	</g>
+</g><g>
+	<g>
+		<circle cx="128" cy="264" r="16" data-original="#000000" class="active-path" data-old_color="#000000" fill="#002269"/>
+	</g>
+</g><g>
+	<g>
+		<circle cx="352" cy="264" r="16" data-original="#000000" class="active-path" data-old_color="#000000" fill="#002269"/>
+	</g>
+</g><g>
+	<g>
+		<circle cx="240" cy="264" r="16" data-original="#000000" class="active-path" data-old_color="#000000" fill="#002269"/>
+	</g>
+</g><g>
+	<g>
+		<circle cx="240" cy="376" r="16" data-original="#000000" class="active-path" data-old_color="#000000" fill="#002269"/>
+	</g>
+</g></g> </svg>

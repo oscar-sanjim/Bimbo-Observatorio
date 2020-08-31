@@ -9,17 +9,17 @@ $document->addStyleSheet(JURI::base() . "components/com_observatorio/css/login.c
     <div class="content-limiter">
         <div class="form-container">
             <div class="logo-container">
-                Logo
+                <img src="<?php echo JURI::base() . 'components/com_observatorio/images/logo.png' ?>">
             </div>
 
             <form method="POST">
                 <div class="input-container">
-                    <img src="<?php echo JURI::base() . 'components/com_observatorio/images/mail.png'; ?>">
+                    <img src="<?php echo JURI::base() . 'components/com_observatorio/images/mail.svg'; ?>">
                     <input type="email" name="email" placeholder="Correo electrónico">
                 </div>
 
                 <div class="input-container">
-                    <img src="<?php echo JURI::base() . 'components/com_observatorio/images/mail.png'; ?>">
+                    <img src="<?php echo JURI::base() . 'components/com_observatorio/images/padlock.svg'; ?>">
                     <input type="password" name="password" placeholder="Contraseña">
                 </div>
 
