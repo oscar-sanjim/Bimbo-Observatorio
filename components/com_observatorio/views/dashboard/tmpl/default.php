@@ -1,6 +1,14 @@
 <?php
 
 $document = JFactory::getDocument();            // Document.
+
+// Highchart
+$document->addScript("https://code.highcharts.com/highcharts.js");
+$document->addScript("https://code.highcharts.com/modules/exporting.js");
+$document->addScript("https://code.highcharts.com/modules/export-data.js");
+$document->addScript("https://code.highcharts.com/modules/accessibility.js");
+
+
 $document->addStyleSheet(JURI::base() . "components/com_observatorio/css/dashboard.css");
 $document->addStyleSheet(JURI::base() . "templates/observatorio/libs/nice-select/nice-select.css");
 
@@ -219,17 +227,22 @@ $document->addScript(JURI::base() . "components/com_observatorio/js/graphs.js");
                         <div class="col-md-12">
                             <div class="general-stats-container" id="general-one">
                                 <div class="title">Colaboradores</div>
-                                <div class="value">1000</div>
+                                <div class="value"></div>
                             </div>
 
                             <div class="general-stats-container" id="general-two">
+                                <div class="title">Fuera de Riesgo</div>
+                                <div class="value"></div>
+                            </div>
+
+                            <div class="general-stats-container" id="general-three">
                                 <div class="title">En Riesgo</div>
-                                <div class="value">2000</div>
+                                <div class="value"></div>
                             </div>
                         </div>
 
                         <div class="col-md-12">
-                            <div class="card-graph-container">
+                            <div class="card-graph-container" id="graph-one">
                                 <div class="card-title">
                                     Título
                                 </div>
