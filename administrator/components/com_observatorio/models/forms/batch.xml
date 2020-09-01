@@ -44,6 +44,10 @@
                type="hidden"
         />
 
+        <field name="uuid"
+               type="hidden"
+        />
+
 
     </fieldset>
 </form>

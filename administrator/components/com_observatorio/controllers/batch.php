@@ -23,6 +23,11 @@ defined('_JEXEC') or die('Restricted access');
 class ObservatorioControllerBatch extends JControllerForm
 {
 
+    /**
+     * Process the provided file.
+     * @param $filepPath
+     * @return stdClass
+     */
     private function processCSVFile($filepPath)
     {
 
@@ -101,6 +106,52 @@ class ObservatorioControllerBatch extends JControllerForm
         return $response;
     }
 
+
+    private function updateRecordsBatchId($batchUUID){
+        // Getting the if of the batch record.
+        $db = JFactory::getDbo();
+        $query = $db
+            ->getQuery(true)
+            ->select('*')
+            ->from($db->quoteName('#__com_observatorio_batch'))
+            ->where($db->quoteName('uuid') . " = " . $db->quote($batchUUID));
+
+        $db->setQuery($query);
+        $batch = $db->loadObject();
+
+
+        // Updating the new records foreign key value.
+        $db = JFactory::getDbo();
+
+        $query = $db->getQuery(true);
+
+        // Fields to update.
+        $fields = array(
+            $db->quoteName('batch') . ' = ' . $db->quote($batch->id)
+
+        );
+
+        // Conditions for which records should be updated.
+        $conditions = array(
+            $db->quoteName('temporal_group_uuid') . ' = ' . $db->quote($batchUUID)
+
+        );
+
+        $query->update($db->quoteName('#__com_observatorio_records'))->set($fields)->where($conditions);
+
+        $db->setQuery($query);
+
+        $result = $db->execute();
+
+        return;
+
+    }
+
+    /**
+     * Deletes previous versions of the matching batch.
+     * @param $trimester
+     * @param $year
+     */
     private function deletePreviousBatches($trimester, $year)
     {
         $db = JFactory::getDbo();
@@ -121,6 +172,13 @@ class ObservatorioControllerBatch extends JControllerForm
         $result = $db->execute();
     }
 
+
+    /**
+     * Overriding the function ob object save.
+     * @param null $key
+     * @param null $urlVar
+     * @return bool
+     */
     function save($key = NULL, $urlVar = NULL)
     {
         // Get a handle to the Joomla! application object
@@ -154,6 +212,7 @@ class ObservatorioControllerBatch extends JControllerForm
 
             // Assigning the file path value and updating the POST data.
             $formData['total_records'] = (int)$response->totalRows;
+            $formData['uuid'] = $response->batchUuid;
 
             date_default_timezone_set("America/Mexico_City");
             $formData['register_datetime'] = date('Y-m-d H:i:s');
@@ -163,6 +222,8 @@ class ObservatorioControllerBatch extends JControllerForm
             JFactory::getApplication()->input->post->set('jform', $formData);
 
             $saveResult = parent::save($formData);
+
+            $this->updateRecordsBatchId($response->batchUuid);
 
         } else {
             return false;

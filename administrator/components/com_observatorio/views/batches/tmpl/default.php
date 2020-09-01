@@ -29,14 +29,17 @@ require_once __DIR__ . "/../../../libs/constants.php";
             <th width="14%" class="center">
                 <?php echo 'Trimestre'; ?>
             </th>
-            <th width="19%" class="center">
+            <th width="16%" class="center">
                 <?php echo 'Registros Totales'; ?>
             </th>
-            <th width="25%" class="center">
+            <th width="16%" class="center">
                 <?php echo 'Fecha de Registro'; ?>
             </th>
-            <th width="25%">
+            <th width="16%">
                 <?php echo 'Archivo'; ?>
+            </th>
+            <th width="16%">
+                <?php echo 'Registros'; ?>
             </th>
         </tr>
         </thead>
@@ -82,6 +85,16 @@ require_once __DIR__ . "/../../../libs/constants.php";
                         ?>
                         <a href="<?php echo JURI::base() . $plublicLink;?>">
                             Descargar
+                        </a>
+                    </td>
+
+                    <td>
+                        <?php
+                        $linkToRecords = JURI::base() . "?option=com_observatorio&view=records&batch=".$row->id;
+
+                        ?>
+                        <a href="<?php echo $linkToRecords;?>">
+                            Registros
                         </a>
                     </td>
                 </tr>

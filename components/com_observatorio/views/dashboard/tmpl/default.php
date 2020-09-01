@@ -6,9 +6,11 @@ $document->addStyleSheet(JURI::base() . "templates/observatorio/libs/nice-select
 
 $document->addScript(JURI::base() . "templates/observatorio/libs/nice-select/jquery.nice-select.js");
 $document->addScript(JURI::base() . "components/com_observatorio/js/dashboard.js");
+$document->addScript(JURI::base() . "components/com_observatorio/js/graphs.js");
 
 ?>
 
+<input type="hidden" value="<?php echo JURI::base()?>" id="host">
 
 <div class="dashboard-main-container">
 
@@ -65,6 +67,8 @@ $document->addScript(JURI::base() . "components/com_observatorio/js/dashboard.js
     </div>
 
     <div class="dashboard-content-container">
+
+        <!-- Filters container -->
         <div class="filters-container">
 
             <!-- Range of dates -->
@@ -91,10 +95,10 @@ $document->addScript(JURI::base() . "components/com_observatorio/js/dashboard.js
                                 Fecha Inicial
                             </div>
 
-                            <select class="filters-select">
+                            <select class="filters-select" id="initial-year">
                                 <option>2018</option>
                                 <option>2019</option>
-                                <option>2020</option>
+                                <option selected>2020</option>
                             </select>
                         </div>
 
@@ -104,11 +108,11 @@ $document->addScript(JURI::base() . "components/com_observatorio/js/dashboard.js
                                 Trimestre Inicial
                             </div>
 
-                            <select class="filters-select">
-                                <option>1ro Ene - Mar</option>
-                                <option>2do Abr - Jun</option>
-                                <option>3ro Jul - Sep</option>
-                                <option>4to Oct - Dic</option>
+                            <select class="filters-select" id="initial-trimester">
+                                <option value="1" selected>1ro Ene - Mar</option>
+                                <option value="2">2do Abr - Jun</option>
+                                <option value="3">3ro Jul - Sep</option>
+                                <option value="4">4to Oct - Dic</option>
                             </select>
                         </div>
                     </div>
@@ -121,10 +125,10 @@ $document->addScript(JURI::base() . "components/com_observatorio/js/dashboard.js
                                 Fecha Final
                             </div>
 
-                            <select class="filters-select">
+                            <select class="filters-select"  id="final-year">
                                 <option>2018</option>
                                 <option>2019</option>
-                                <option>2020</option>
+                                <option selected>2020</option>
                             </select>
                         </div>
 
@@ -134,11 +138,11 @@ $document->addScript(JURI::base() . "components/com_observatorio/js/dashboard.js
                                 Trimestre Final
                             </div>
 
-                            <select class="filters-select">
-                                <option>1ro Ene - Mar</option>
-                                <option>2do Abr - Jun</option>
-                                <option>3ro Jul - Sep</option>
-                                <option>4to Oct - Dic</option>
+                            <select class="filters-select"  id="final-trimester">
+                                <option value="1">1ro Ene - Mar</option>
+                                <option value="2">2do Abr - Jun</option>
+                                <option value="3">3ro Jul - Sep</option>
+                                <option value="4">4to Oct - Dic</option>
                             </select>
                         </div>
                     </div>
@@ -213,6 +217,15 @@ $document->addScript(JURI::base() . "components/com_observatorio/js/dashboard.js
 
                         <!-- General numeric stats -->
                         <div class="col-md-12">
+                            <div class="general-stats-container" id="general-one">
+                                <div class="title">Colaboradores</div>
+                                <div class="value">1000</div>
+                            </div>
+
+                            <div class="general-stats-container" id="general-two">
+                                <div class="title">En Riesgo</div>
+                                <div class="value">2000</div>
+                            </div>
                         </div>
 
                         <div class="col-md-12">

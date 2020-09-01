@@ -130,7 +130,7 @@
 }
 .dashboard-main-container .dashboard-content-container .filters-container {
   height: 75px;
-  border-bottom: 2px solid #011058;
+  border-bottom: 1px solid #011058;
   text-align: right;
   padding: 0 15px;
   line-height: 30px;
@@ -235,6 +235,23 @@
 .dashboard-main-container .dashboard-content-container .graphs-container {
   width: 100%;
   padding: 15px;
+}
+.dashboard-main-container .dashboard-content-container .graphs-container .general-stats-container {
+  width: 49%;
+  display: inline-block;
+}
+.dashboard-main-container .dashboard-content-container .graphs-container .general-stats-container .title {
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
+  color: #011058;
+  font-size: 22px;
+}
+.dashboard-main-container .dashboard-content-container .graphs-container .general-stats-container .value {
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
+  color: #011058;
+  font-size: 42px;
+  font-weight: bold;
 }
 .dashboard-main-container .dashboard-content-container .graphs-container .card-graph-container {
   /* Add shadows to create the "card" effect */
