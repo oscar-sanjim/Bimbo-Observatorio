@@ -274,5 +274,10 @@
   letter-spacing: 1px;
   font-weight: bold;
 }
+.dashboard-main-container .dashboard-content-container .graphs-container .card-graph-container .card-title.morbility-title {
+  padding-top: 10px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #011058;
+}
 
 /*# sourceMappingURL=dashboard.css.map */

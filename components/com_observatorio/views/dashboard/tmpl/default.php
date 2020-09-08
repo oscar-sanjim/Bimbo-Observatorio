@@ -6,7 +6,7 @@ $document = JFactory::getDocument();            // Document.
 $document->addScript("https://code.highcharts.com/highcharts.js");
 $document->addScript("https://code.highcharts.com/modules/exporting.js");
 $document->addScript("https://code.highcharts.com/modules/export-data.js");
-$document->addScript("https://code.highcharts.com/modules/accessibility.js");
+
 
 
 $document->addStyleSheet(JURI::base() . "components/com_observatorio/css/dashboard.css");
@@ -18,7 +18,7 @@ $document->addScript(JURI::base() . "components/com_observatorio/js/graphs.js");
 
 ?>
 
-<input type="hidden" value="<?php echo JURI::base()?>" id="host">
+<input type="hidden" value="<?php echo JURI::base() ?>" id="host">
 
 <div class="dashboard-main-container">
 
@@ -133,7 +133,7 @@ $document->addScript(JURI::base() . "components/com_observatorio/js/graphs.js");
                                 Fecha Final
                             </div>
 
-                            <select class="filters-select"  id="final-year">
+                            <select class="filters-select" id="final-year">
                                 <option>2018</option>
                                 <option>2019</option>
                                 <option selected>2020</option>
@@ -146,7 +146,7 @@ $document->addScript(JURI::base() . "components/com_observatorio/js/graphs.js");
                                 Trimestre Final
                             </div>
 
-                            <select class="filters-select"  id="final-trimester">
+                            <select class="filters-select" id="final-trimester">
                                 <option value="1">1ro Ene - Mar</option>
                                 <option value="2">2do Abr - Jun</option>
                                 <option value="3">3ro Jul - Sep</option>
@@ -220,7 +220,7 @@ $document->addScript(JURI::base() . "components/com_observatorio/js/graphs.js");
 
             <!-- First row of graphs -->
             <div class="row">
-                <div class="col-md-7">
+                <div class="col-md-8">
                     <div class="row">
 
                         <!-- General numeric stats -->
@@ -242,22 +242,26 @@ $document->addScript(JURI::base() . "components/com_observatorio/js/graphs.js");
                         </div>
 
                         <div class="col-md-12">
-                            <div class="card-graph-container" id="graph-one">
+                            <div class="card-graph-container">
                                 <div class="card-title">
-                                    Título
+                                    Población en Riesgo
                                 </div>
-                                Gráficas
+                                <div id="graph-one">
+                                    Gráficas
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-md-5">
+                <div class="col-md-4">
                     <div class="card-graph-container">
-                        <div class="card-title">
-                            Título
+                        <div class="card-title morbility-title">
+                            Morbilidades
                         </div>
-                        Gráficas
+                        <div id="graph-two">
+                            Gráficas
+                        </div>
                     </div>
                 </div>
             </div>
@@ -269,27 +273,33 @@ $document->addScript(JURI::base() . "components/com_observatorio/js/graphs.js");
                 <div class="col-md-4">
                     <div class="card-graph-container">
                         <div class="card-title">
-                            Título
+                            Atención Médica
                         </div>
-                        Gráficas
+                        <div id="graph-three">
+                            Gráficas
+                        </div>
                     </div>
                 </div>
 
                 <div class="col-md-4">
                     <div class="card-graph-container">
                         <div class="card-title">
-                            Título
+                            Atención Médica (Porcentaje)
                         </div>
-                        Gráficas
+                        <div id="graph-four">
+                            Gráficas
+                        </div>
                     </div>
                 </div>
 
                 <div class="col-md-4">
                     <div class="card-graph-container">
                         <div class="card-title">
-                            Título
+                            Morbilidades (Porcentaje)
                         </div>
-                        Gráficas
+                        <div id="graph-five">
+                            Gráficas
+                        </div>
                     </div>
                 </div>
 

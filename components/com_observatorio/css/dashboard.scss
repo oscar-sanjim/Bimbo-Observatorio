@@ -257,6 +257,11 @@
           letter-spacing: 1px;
           font-weight: bold;
 
+          &.morbility-title{
+            padding-top: 10px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #011058;
+          }
         }
       }
     }

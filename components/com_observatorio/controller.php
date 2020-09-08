@@ -80,11 +80,18 @@ class ObservatorioController extends JControllerLegacy
         $model = $this->getModel('Dashboard');
 
         $graphManager = new Graphs($model, $intialTrim, $finalTrim, $intialYear, $finalYear);
-
         $data = array();
         switch ($graphName){
             case 'total_colaborators_in_risk':
-                $data = $graphManager->getColaboratorsInRisk();
+                $data = $graphManager->getCollaboratorsInRisk();
+                break;
+
+            case 'total_by_morbidities':
+                $data = $graphManager->getTotalsByMorbidity();
+                break;
+
+            case 'get_totals_by_type_of_medical_attention':
+                $data = $graphManager->getCollaboratorsUnderMedicalAttention();
                 break;
         }
 
