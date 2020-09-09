@@ -34,6 +34,12 @@ class ObservatorioViewDashboard extends JViewLegacy
             $app->redirect(JRoute::_(JURI::base(), false));
         }
 
+        $this->organizations = $this->get('Organizations');
+        $this->datesData = $this->get('DatesData');
+        $this->lastRecordDate = $this->get('LastRecordsDates');
+
+
+
         // Display the view
         parent::display($tpl);
     }

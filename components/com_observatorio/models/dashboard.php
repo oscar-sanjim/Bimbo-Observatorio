@@ -21,6 +21,95 @@ error_reporting(E_ALL);
  */
 class ObservatorioModelDashboard extends JModelItem
 {
+
+
+    /**
+     * Retireves all the distinct organizations.
+     * @return mixed
+     */
+    public function getOrganizations(){
+
+        // Get a db connection.
+        $db = JFactory::getDbo();
+
+        // Create a new query object.
+        $query = $db->getQuery(true);
+
+
+        // Select all records from the user profile table where key begins with "custom.".
+        // Order it by the ordering field.
+        $query->select('DISTINCT(r.organizacion)');
+        $query->from($db->quoteName('#__com_observatorio_records', 'r'));
+
+        // Reset the query using our newly populated query object.
+        $db->setQuery($query);
+
+        // Load the results as a list of stdClass objects (see later for more options on retrieving data).
+        $results = $db->loadObjectList();
+
+        return $results;
+
+    }
+
+    /**
+     * Retrieves the different options of years
+     * @return mixed
+     */
+    public function getDatesData(){
+
+        // Get a db connection.
+        $db = JFactory::getDbo();
+
+        // Create a new query object.
+        $query = $db->getQuery(true);
+
+
+        // Select all records from the user profile table where key begins with "custom.".
+        // Order it by the ordering field.
+        $query->select('year');
+        $query->from($db->quoteName('#__com_observatorio_batch'));
+        $query->group(array($db->quoteName('year'), $db->quoteName('trimester')));
+        $query->order('year ASC');
+
+
+        // Reset the query using our newly populated query object.
+        $db->setQuery($query);
+
+        // Load the results as a list of stdClass objects (see later for more options on retrieving data).
+        $results = $db->loadObjectList();
+
+        return $results;
+
+    }
+
+
+    public function getLastRecordsDates(){
+
+        // Get a db connection.
+        $db = JFactory::getDbo();
+
+        // Create a new query object.
+        $query = $db->getQuery(true);
+
+
+        // Select all records from the user profile table where key begins with "custom.".
+        // Order it by the ordering field.
+        $query->select('year, trimester');
+        $query->from($db->quoteName('#__com_observatorio_batch'));
+        $query->group(array($db->quoteName('year'), $db->quoteName('trimester')));
+        $query->order('year DESC, trimester DESC');
+
+
+        // Reset the query using our newly populated query object.
+        $db->setQuery($query, 0, 1);
+
+        // Load the results as a list of stdClass objects (see later for more options on retrieving data).
+        $results = $db->loadObject();
+
+        return $results;
+    }
+
+
     /**
      * Groups the general data of collaborators
      * @param $intialTrim
@@ -131,6 +220,9 @@ class ObservatorioModelDashboard extends JModelItem
     }
 
 
+    /**
+     * Retrieves data of the collaborators grouped by medical attention type.
+     */
     public function getCollaboratorsUnderMedicalAttention($intialTrim, $finalTrim, $intialYear, $finalYear, $organizations){
 
         // Get a db connection.
@@ -161,5 +253,39 @@ class ObservatorioModelDashboard extends JModelItem
 
         return $results;
 
+    }
+
+
+
+    public function getComplianceLevelsByOrganization($intialTrim, $finalTrim, $intialYear, $finalYear, $organizations){
+        // Get a db connection.
+        $db = JFactory::getDbo();
+
+        // Create a new query object.
+        $query = $db->getQuery(true);
+
+
+        // Select all records from the user profile table where key begins with "custom.".
+        // Order it by the ordering field.
+        $query->select('r.organizacion, r.nivel_cumplimiento, b.year, b. trimester');
+        $query->from($db->quoteName('#__com_observatorio_records', 'r'));
+        $query->join('INNER', $db->quoteName('#__com_observatorio_batch', 'b') . ' ON ' . $db->quoteName('r.batch') . ' = ' . $db->quoteName('b.id'));
+        $query->where($db->quoteName('b.trimester') . ' >= ' . $db->quote($intialTrim) . ' AND ' . 'b.year >= ' . $db->quote($intialYear));
+        $query->where($db->quoteName('b.trimester') . ' <= ' . $db->quote($finalTrim) . ' AND ' . 'b.year <= ' . $db->quote($finalYear));
+
+        if(sizeOf($organizations) > 0){
+            $implodedOrganizations = implode(',', $organizations);
+            $query->where($db->quoteName('r.organizacion') . ' IN (' . $implodedOrganizations . ')');
+        }
+
+        $query->order('year ASC, trimester ASC');
+
+        // Reset the query using our newly populated query object.
+        $db->setQuery($query);
+
+        // Load the results as a list of stdClass objects (see later for more options on retrieving data).
+        $results = $db->loadObjectList();
+
+        return $results;
     }
 }

@@ -21,7 +21,7 @@ class Graphs{
         $response = array(
             "total" => $data->total,
             "total_risk" => $data->total_risk,
-            "percentage_risk" => ($data->total_risk * 100) / $data->total
+            "percentage_risk" => ($data->total > 0 ) ? ($data->total_risk * 100) / $data->total : 0
         );
         return $response;
 
@@ -81,5 +81,34 @@ class Graphs{
 
         return $response;
 
+    }
+
+    /**
+     * Retrieves the compliance levels by organization
+     * @return array
+     */
+    public function getComplianceLevels(){
+        $data = $this->model->getComplianceLevelsByOrganization($this->intialTrim, $this->finalTrim, $this->intialYear, $this->finalYear, array());
+        $organizationsData = array();
+
+        foreach($data as $record){
+
+            // Create the record for the org. if not available.
+            if(array_key_exists($record->organizacion, $organizationsData) == false){
+                $organizationsData[$record->organizacion] = array();
+
+            }
+
+            array_push($organizationsData[$record->organizacion], array(
+                "nivel_cumplimiento" => $record->nivel_cumplimiento,
+                "year" => $record->year,
+                "trimester" => $record->trimester
+            ));
+
+        }
+
+        $response = $organizationsData;
+
+        return $response;
     }
 }

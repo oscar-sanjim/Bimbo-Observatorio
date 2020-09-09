@@ -72,10 +72,14 @@
 }
 
 .dashboard-main-container {
-  height: 100vh;
+  position: relative;
 }
 .dashboard-main-container .navigation-container {
-  height: 100%;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  /* required */
+  height: 100vh;
   width: 150px;
   display: inline-block;
   vertical-align: top;
@@ -127,6 +131,7 @@
   display: inline-block;
   vertical-align: top;
   margin-left: -5px;
+  position: relative;
 }
 .dashboard-main-container .dashboard-content-container .filters-container {
   height: 75px;
@@ -159,6 +164,21 @@
 .dashboard-main-container .dashboard-content-container .filters-container .filter-selector .icon img {
   width: 100%;
 }
+.dashboard-main-container .dashboard-content-container .filters-container .filter-selector .icon img.unactive {
+  display: inline-block;
+}
+.dashboard-main-container .dashboard-content-container .filters-container .filter-selector .icon img.active {
+  display: none;
+}
+.dashboard-main-container .dashboard-content-container .filters-container .filter-selector .icon.active img {
+  width: 100%;
+}
+.dashboard-main-container .dashboard-content-container .filters-container .filter-selector .icon.active img.unactive {
+  display: none;
+}
+.dashboard-main-container .dashboard-content-container .filters-container .filter-selector .icon.active img.active {
+  display: inline-block;
+}
 .dashboard-main-container .dashboard-content-container .filters-container .filter-selector .value {
   display: inline-block;
   vertical-align: middle;
@@ -167,6 +187,9 @@
   font-size: 16px;
   position: relative;
   margin-right: 10px;
+}
+.dashboard-main-container .dashboard-content-container .filters-container .filter-selector .value.active {
+  color: #6CC642;
 }
 .dashboard-main-container .dashboard-content-container .filters-container .filter-selector .arrow-down {
   display: inline-block;
@@ -178,6 +201,9 @@
   border-top: 8px solid #011058;
   position: relative;
 }
+.dashboard-main-container .dashboard-content-container .filters-container .filter-selector .arrow-down.active {
+  border-top: 8px solid #6CC642;
+}
 .dashboard-main-container .dashboard-content-container .filters-container .filter-selector .floating-window {
   width: 400px;
   position: absolute;
@@ -188,6 +214,10 @@
   z-index: 999;
   top: 52px;
   display: none;
+}
+.dashboard-main-container .dashboard-content-container .filters-container .filter-selector .floating-window.organizations {
+  max-height: 250px;
+  overflow-y: scroll;
 }
 .dashboard-main-container .dashboard-content-container .filters-container .filter-selector .floating-window.active {
   display: block;
@@ -235,6 +265,9 @@
 .dashboard-main-container .dashboard-content-container .graphs-container {
   width: 100%;
   padding: 15px;
+}
+.dashboard-main-container .dashboard-content-container .graphs-container .group-number-two {
+  display: none;
 }
 .dashboard-main-container .dashboard-content-container .graphs-container .general-stats-container {
   width: 32%;

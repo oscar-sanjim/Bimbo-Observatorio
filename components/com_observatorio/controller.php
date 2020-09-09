@@ -93,6 +93,10 @@ class ObservatorioController extends JControllerLegacy
             case 'get_totals_by_type_of_medical_attention':
                 $data = $graphManager->getCollaboratorsUnderMedicalAttention();
                 break;
+
+            case 'compliance_level_by_organization':
+                $data = $graphManager->getComplianceLevels();
+                break;
         }
 
         echo json_encode($data);
