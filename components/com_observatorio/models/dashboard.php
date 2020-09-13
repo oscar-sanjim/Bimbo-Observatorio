@@ -118,7 +118,7 @@ class ObservatorioModelDashboard extends JModelItem
      * @param $finalYear
      * @return mixed
      */
-    public function groupGenericNumericValues($intialTrim, $finalTrim, $intialYear, $finalYear)
+    public function groupGenericNumericValues($intialTrim, $finalTrim, $intialYear, $finalYear, $organizations)
     {
         // Get a db connection.
         $db = JFactory::getDbo();
@@ -134,6 +134,10 @@ class ObservatorioModelDashboard extends JModelItem
         $query->join('INNER', $db->quoteName('#__com_observatorio_batch', 'b') . ' ON ' . $db->quoteName('r.batch') . ' = ' . $db->quoteName('b.id'));
         $query->where($db->quoteName('b.trimester') . ' >= ' . $db->quote($intialTrim) . ' AND ' . 'b.year >= ' . $db->quote($intialYear));
         $query->where($db->quoteName('b.trimester') . ' <= ' . $db->quote($finalTrim) . ' AND ' . 'b.year <= ' . $db->quote($finalYear));
+
+        if($organizations != ""){
+            $query->where($db->quoteName('r.organizacion') . ' IN (' . $organizations . ')');
+        }
 
         // Reset the query using our newly populated query object.
         $db->setQuery($query);
@@ -154,7 +158,7 @@ class ObservatorioModelDashboard extends JModelItem
      * @param $finalYear
      * @return mixed
      */
-    public function groupByMorbility($intialTrim, $finalTrim, $intialYear, $finalYear)
+    public function groupByMorbility($intialTrim, $finalTrim, $intialYear, $finalYear, $organizations)
     {
         $data = array();
         for ($counter = 1; $counter <= 5; $counter++) {
@@ -205,6 +209,10 @@ class ObservatorioModelDashboard extends JModelItem
 
             $query->group($db->quoteName('morbilidad_uno_alias'));
 
+            if($organizations != ""){
+                $query->where($db->quoteName('r.organizacion') . ' IN (' . $organizations . ')');
+            }
+
             // Reset the query using our newly populated query object.
             $db->setQuery($query);
 
@@ -225,6 +233,7 @@ class ObservatorioModelDashboard extends JModelItem
      */
     public function getCollaboratorsUnderMedicalAttention($intialTrim, $finalTrim, $intialYear, $finalYear, $organizations){
 
+        //echo $organizations; die;
         // Get a db connection.
         $db = JFactory::getDbo();
 
@@ -240,10 +249,11 @@ class ObservatorioModelDashboard extends JModelItem
         $query->where($db->quoteName('b.trimester') . ' >= ' . $db->quote($intialTrim) . ' AND ' . 'b.year >= ' . $db->quote($intialYear));
         $query->where($db->quoteName('b.trimester') . ' <= ' . $db->quote($finalTrim) . ' AND ' . 'b.year <= ' . $db->quote($finalYear));
 
-        if(sizeOf($organizations) > 0){
-            $implodedOrganizations = implode(',', $organizations);
-            $query->where($db->quoteName('r.organizacion') . ' IN (' . $implodedOrganizations . ')');
+        if($organizations != ""){
+            $query->where($db->quoteName('r.organizacion') . ' IN (' . $organizations . ')');
         }
+
+        //echo($query->__toString());die;
 
         // Reset the query using our newly populated query object.
         $db->setQuery($query);
@@ -281,9 +291,8 @@ class ObservatorioModelDashboard extends JModelItem
         $query->where($db->quoteName('b.trimester') . ' >= ' . $db->quote($intialTrim) . ' AND ' . 'b.year >= ' . $db->quote($intialYear));
         $query->where($db->quoteName('b.trimester') . ' <= ' . $db->quote($finalTrim) . ' AND ' . 'b.year <= ' . $db->quote($finalYear));
 
-        if(sizeOf($organizations) > 0){
-            $implodedOrganizations = implode(',', $organizations);
-            $query->where($db->quoteName('r.organizacion') . ' IN (' . $implodedOrganizations . ')');
+        if($organizations != ""){
+            $query->where($db->quoteName('r.organizacion') . ' IN (' . $organizations . ')');
         }
 
         $query->order('year ASC, trimester ASC');
@@ -322,9 +331,8 @@ class ObservatorioModelDashboard extends JModelItem
         $query->where($db->quoteName('b.trimester') . ' >= ' . $db->quote($intialTrim) . ' AND ' . 'b.year >= ' . $db->quote($intialYear));
         $query->where($db->quoteName('b.trimester') . ' <= ' . $db->quote($finalTrim) . ' AND ' . 'b.year <= ' . $db->quote($finalYear));
 
-        if(sizeOf($organizations) > 0){
-            $implodedOrganizations = implode(',', $organizations);
-            $query->where($db->quoteName('r.organizacion') . ' IN (' . $implodedOrganizations . ')');
+        if($organizations != ""){
+            $query->where($db->quoteName('r.organizacion') . ' IN (' . $organizations . ')');
         }
 
         $query->order('year ASC, trimester ASC');
@@ -363,9 +371,8 @@ class ObservatorioModelDashboard extends JModelItem
         $query->where($db->quoteName('b.trimester') . ' >= ' . $db->quote($intialTrim) . ' AND ' . 'b.year >= ' . $db->quote($intialYear));
         $query->where($db->quoteName('b.trimester') . ' <= ' . $db->quote($finalTrim) . ' AND ' . 'b.year <= ' . $db->quote($finalYear));
 
-        if(sizeOf($organizations) > 0){
-            $implodedOrganizations = implode(',', $organizations);
-            $query->where($db->quoteName('r.organizacion') . ' IN (' . $implodedOrganizations . ')');
+        if($organizations != ""){
+            $query->where($db->quoteName('r.organizacion') . ' IN (' . $organizations . ')');
         }
 
         $query->order('year ASC, trimester ASC');
@@ -404,9 +411,8 @@ class ObservatorioModelDashboard extends JModelItem
         $query->where($db->quoteName('b.trimester') . ' >= ' . $db->quote($intialTrim) . ' AND ' . 'b.year >= ' . $db->quote($intialYear));
         $query->where($db->quoteName('b.trimester') . ' <= ' . $db->quote($finalTrim) . ' AND ' . 'b.year <= ' . $db->quote($finalYear));
 
-        if(sizeOf($organizations) > 0){
-            $implodedOrganizations = implode(',', $organizations);
-            $query->where($db->quoteName('r.organizacion') . ' IN (' . $implodedOrganizations . ')');
+        if($organizations != ""){
+            $query->where($db->quoteName('r.organizacion') . ' IN (' . $organizations . ')');
         }
 
         $query->order('year ASC, trimester ASC');
@@ -446,9 +452,8 @@ class ObservatorioModelDashboard extends JModelItem
         $query->where($db->quoteName('b.trimester') . ' >= ' . $db->quote($intialTrim) . ' AND ' . 'b.year >= ' . $db->quote($intialYear));
         $query->where($db->quoteName('b.trimester') . ' <= ' . $db->quote($finalTrim) . ' AND ' . 'b.year <= ' . $db->quote($finalYear));
 
-        if(sizeOf($organizations) > 0){
-            $implodedOrganizations = implode(',', $organizations);
-            $query->where($db->quoteName('r.organizacion') . ' IN (' . $implodedOrganizations . ')');
+        if($organizations != ""){
+            $query->where($db->quoteName('r.organizacion') . ' IN (' . $organizations . ')');
         }
 
         $query->order('year ASC, trimester ASC');
@@ -458,6 +463,87 @@ class ObservatorioModelDashboard extends JModelItem
 
         // Load the results as a list of stdClass objects (see later for more options on retrieving data).
         $results = $db->loadObjectList();
+
+        return $results;
+    }
+
+
+
+    /**
+     * @param $intialTrim
+     * @param $finalTrim
+     * @param $intialYear
+     * @param $finalYear
+     * @param $organizations
+     * @return mixed
+     */
+    public function getAbsentsByOrganizationAndDate($intialTrim, $finalTrim, $intialYear, $finalYear, $organizations){
+        // Get a db connection.
+        $db = JFactory::getDbo();
+
+        // Create a new query object.
+        $query = $db->getQuery(true);
+
+
+        // Select all records from the user profile table where key begins with "custom.".
+        // Order it by the ordering field.
+        $query->select('r.dias_ausentismo, r.organizacion, b.year, b. trimester');
+        $query->from($db->quoteName('#__com_observatorio_records', 'r'));
+        $query->join('INNER', $db->quoteName('#__com_observatorio_batch', 'b') . ' ON ' . $db->quoteName('r.batch') . ' = ' . $db->quoteName('b.id'));
+        $query->where($db->quoteName('b.trimester') . ' >= ' . $db->quote($intialTrim) . ' AND ' . 'b.year >= ' . $db->quote($intialYear));
+        $query->where($db->quoteName('b.trimester') . ' <= ' . $db->quote($finalTrim) . ' AND ' . 'b.year <= ' . $db->quote($finalYear));
+
+        if($organizations != ""){
+            $query->where($db->quoteName('r.organizacion') . ' IN (' . $organizations . ')');
+        }
+
+        $query->order('year ASC, trimester ASC');
+
+        // Reset the query using our newly populated query object.
+        $db->setQuery($query);
+
+        // Load the results as a list of stdClass objects (see later for more options on retrieving data).
+        $results = $db->loadObjectList();
+
+        return $results;
+    }
+
+
+    /**
+     * @param $intialTrim
+     * @param $finalTrim
+     * @param $intialYear
+     * @param $finalYear
+     * @param $organizations
+     * @return mixed
+     */
+    public function getPercentageByAbsentType($intialTrim, $finalTrim, $intialYear, $finalYear, $organizations){
+        // Get a db connection.
+        $db = JFactory::getDbo();
+
+        // Create a new query object.
+        $query = $db->getQuery(true);
+
+
+        // Select all records from the user profile table where key begins with "custom.".
+        // Order it by the ordering field.
+        $query->select('SUM(r.dias_ausentismo_enfermedades_generales) as type_general, SUM(r.dias_ausentismo_enfermedades_prevenibles) as type_preventable, SUM(r.dias_ausentismo_enfermedades_mentales) as type_mental');
+        $query->from($db->quoteName('#__com_observatorio_records', 'r'));
+        $query->join('INNER', $db->quoteName('#__com_observatorio_batch', 'b') . ' ON ' . $db->quoteName('r.batch') . ' = ' . $db->quoteName('b.id'));
+        $query->where($db->quoteName('b.trimester') . ' >= ' . $db->quote($intialTrim) . ' AND ' . 'b.year >= ' . $db->quote($intialYear));
+        $query->where($db->quoteName('b.trimester') . ' <= ' . $db->quote($finalTrim) . ' AND ' . 'b.year <= ' . $db->quote($finalYear));
+
+        if($organizations != ""){
+            $query->where($db->quoteName('r.organizacion') . ' IN (' . $organizations . ')');
+        }
+
+        $query->order('year ASC, trimester ASC');
+
+        // Reset the query using our newly populated query object.
+        $db->setQuery($query);
+
+        // Load the results as a list of stdClass objects (see later for more options on retrieving data).
+        $results = $db->loadObject();
 
         return $results;
     }

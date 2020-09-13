@@ -18,6 +18,11 @@ function getGroupGraphs(groupNumber) {
         graphHealthSurvey();
 
 
+    }else if(groupNumber === "four"){
+        graphTotalsAbsents();
+        graphAbsentsTypes();
+
+
     }
 }
 

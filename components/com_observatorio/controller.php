@@ -76,10 +76,24 @@ class ObservatorioController extends JControllerLegacy
         $finalTrim = $_GET['finalTrimester'];
         $intialYear = $_GET['intialYear'];
         $finalYear = $_GET['finalYear'];
+        $organizations = $_GET['organization'];
+
+        $organizationsString = "";
+        if($organizations != ""){
+            $organizationsArray = explode(",", $organizations);
+            foreach ($organizationsArray as $index=>$item){
+                if($item != ""){
+                    $organizationsString .= "'".$item."',";
+
+                }
+            }
+        }
+
+        $organizationsString = rtrim($organizationsString, ',');
 
         $model = $this->getModel('Dashboard');
 
-        $graphManager = new Graphs($model, $intialTrim, $finalTrim, $intialYear, $finalYear);
+        $graphManager = new Graphs($model, $intialTrim, $finalTrim, $intialYear, $finalYear, $organizationsString);
         $data = array();
         switch ($graphName){
             case 'total_colaborators_in_risk':
@@ -112,6 +126,14 @@ class ObservatorioController extends JControllerLegacy
 
             case 'surveys_by_organization_and_trimester':
                 $data = $graphManager->getSurveysData();
+                break;
+
+            case 'total_absents_by_organization_and_date':
+                $data = $graphManager->getAbsentsByOrganizationAndDate();
+                break;
+
+            case 'percentage_absents_by_type':
+                $data = $graphManager->percentageAbsentsByType();
                 break;
         }
 

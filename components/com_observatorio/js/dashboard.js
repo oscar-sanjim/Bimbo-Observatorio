@@ -7,10 +7,10 @@ var HOST = "";
 var URI = "?option=com_observatorio&task=getGraphData";
 var COLORS = ["#002269", "#A6E1F6", "#248CC0", "#7CCD53", "#6075A1", "#C7ECF9", "#76B7D8", "#ADE094"];
 var TRIMESTERS = {
-    "1" : "Ene-Mar",
-    "2" : "Abr-Jun",
-    "3" : "Jul-Sep",
-    "4" : "Oct-Dic"
+    "1": "Ene-Mar",
+    "2": "Abr-Jun",
+    "3": "Jul-Sep",
+    "4": "Oct-Dic"
 };
 
 // Globals
@@ -34,22 +34,36 @@ function getFiltersQueryString() {
     var initialYear = jQuery("#initial-year").val();
     var finalYear = jQuery("#final-year").val();
 
-    result = "&intialTrimester=" + initialTrimester + "&finalTrimester=" + finalTrimester + "&intialYear=" + initialYear + "&finalYear=" + finalYear;
+    var organizationString = "&organization=";
+    jQuery(".organization").each(function (index) {
+        if (jQuery(this).prop("checked")) {
+
+            organizationString += jQuery(this).val() + ",";
+
+        }
+    });
+
+    //organizationString = encodeURIComponent(organizationString);
+
+    result = "&intialTrimester=" + initialTrimester + "&finalTrimester=" + finalTrimester + "&intialYear=" + initialYear + "&finalYear=" + finalYear + organizationString;
+
+    console.log(result);
+
     return result;
 
 }
 
-jQuery(document).ready(function(){
+jQuery(document).ready(function () {
 
     // Open/Close the filter windows.
-    jQuery(".filter-selected-info").click(function(e){
+    jQuery(".filter-selected-info").click(function (e) {
         e.stopPropagation();
 
         var newClass = "";
-        if(jQuery(this).siblings(".floating-window").hasClass("active")){
+        if (jQuery(this).siblings(".floating-window").hasClass("active")) {
             newClass = "";
 
-        }else{
+        } else {
             newClass = "active";
 
         }
@@ -65,8 +79,8 @@ jQuery(document).ready(function(){
     jQuery('select').niceSelect();
 
     // Managing the clicks on the navigation items.
-    jQuery(".menu-item-container").click(function(){
-        jQuery(".menu-item-container").each(function(){
+    jQuery(".menu-item-container").click(function () {
+        jQuery(".menu-item-container").each(function () {
             jQuery(this).removeClass("active");
 
         });
@@ -77,7 +91,7 @@ jQuery(document).ready(function(){
         // Showing the graphs group.
         var graphsGroup = jQuery(this).data("graph-group");
         jQuery(".graph-group").hide();
-        jQuery(".group-number-"+graphsGroup).show();
+        jQuery(".group-number-" + graphsGroup).show();
 
         // Changing global variable
         activeGroup = graphsGroup;

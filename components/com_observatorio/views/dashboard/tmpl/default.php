@@ -18,6 +18,7 @@ $document->addScript(JURI::base() . "components/com_observatorio/js/dashboard.js
 $document->addScript(JURI::base() . "components/com_observatorio/js/graphs_group_one.js");
 $document->addScript(JURI::base() . "components/com_observatorio/js/graphs_group_two.js");
 $document->addScript(JURI::base() . "components/com_observatorio/js/graphs_group_three.js");
+$document->addScript(JURI::base() . "components/com_observatorio/js/graphs_group_four.js");
 $document->addScript(JURI::base() . "components/com_observatorio/js/graphs.js");
 
 ?>
@@ -209,7 +210,7 @@ $document->addScript(JURI::base() . "components/com_observatorio/js/graphs.js");
                         foreach ($this->organizations as $organization):
                             ?>
                             <label class="checkbox-container"><?php echo $organization->organizacion; ?>
-                                <input type="checkbox" name="organization[]">
+                                <input type="checkbox" name="organization[]" class="organization" value="<?php echo $organization->organizacion; ?>">
                                 <span class="checkmark"></span>
                             </label>
                             <?php
@@ -314,6 +315,7 @@ $document->addScript(JURI::base() . "components/com_observatorio/js/graphs.js");
 
                 </div>
             </div>
+
 
             <!-- Graph container number two -->
             <div class="graph-group group-number-two">
@@ -432,6 +434,46 @@ $document->addScript(JURI::base() . "components/com_observatorio/js/graphs.js");
 
                 </div>
             </div>
+
+
+            <!-- Graph container number four -->
+            <div class="graph-group group-number-four">
+                <!-- First row of graphs -->
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="card-graph-container">
+                            <div class="card-title">
+                                Total de Ausencias
+                            </div>
+                            <div id="graph-41">
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card-graph-container">
+                            <div class="card-title">
+                                Porcentajes de ausencia
+                            </div>
+                            <div id="graph-42">
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+                <!-- Second row of graphs -->
+                <div class="row">
+
+
+
+                </div>
+            </div>
+
         </div>
     </div>
 </div>
