@@ -87,6 +87,11 @@
   border-radius: 0 15px 15px 0;
   padding-top: 75px;
 }
+@media only screen and (max-width: 600px) {
+  .dashboard-main-container .navigation-container {
+    display: none;
+  }
+}
 .dashboard-main-container .navigation-container .menu-item-container {
   width: 100%;
   cursor: pointer;
@@ -132,6 +137,12 @@
   vertical-align: top;
   margin-left: -5px;
   position: relative;
+}
+@media only screen and (max-width: 600px) {
+  .dashboard-main-container .dashboard-content-container {
+    width: 100%;
+    margin-left: 0;
+  }
 }
 .dashboard-main-container .dashboard-content-container .filters-container {
   height: 75px;
@@ -269,6 +280,9 @@
 .dashboard-main-container .dashboard-content-container .graphs-container .group-number-two {
   display: none;
 }
+.dashboard-main-container .dashboard-content-container .graphs-container .group-number-three {
+  display: none;
+}
 .dashboard-main-container .dashboard-content-container .graphs-container .general-stats-container {
   width: 32%;
   display: inline-block;
@@ -306,11 +320,12 @@
   font-size: 16px;
   letter-spacing: 1px;
   font-weight: bold;
-}
-.dashboard-main-container .dashboard-content-container .graphs-container .card-graph-container .card-title.morbility-title {
   padding-top: 10px;
   padding-bottom: 15px;
   border-bottom: 1px solid #011058;
+}
+.dashboard-main-container .dashboard-content-container .graphs-container .card-graph-container .card-title.morbility-title {
+  margin-bottom: 34px;
 }
 
 /*# sourceMappingURL=dashboard.css.map */

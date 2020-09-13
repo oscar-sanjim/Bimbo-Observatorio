@@ -3,7 +3,8 @@
 $document = JFactory::getDocument();            // Document.
 
 // Highchart
-$document->addScript("https://code.highcharts.com/highcharts.js");
+//$document->addScript("https://code.highcharts.com/highcharts.js");
+$document->addScript("https://code.highcharts.com/stock/highstock.js");
 $document->addScript("https://code.highcharts.com/modules/exporting.js");
 $document->addScript("https://code.highcharts.com/modules/export-data.js");
 $document->addScript("https://code.highcharts.com/modules/no-data-to-display.js");
@@ -16,6 +17,7 @@ $document->addScript(JURI::base() . "templates/observatorio/libs/nice-select/jqu
 $document->addScript(JURI::base() . "components/com_observatorio/js/dashboard.js");
 $document->addScript(JURI::base() . "components/com_observatorio/js/graphs_group_one.js");
 $document->addScript(JURI::base() . "components/com_observatorio/js/graphs_group_two.js");
+$document->addScript(JURI::base() . "components/com_observatorio/js/graphs_group_three.js");
 $document->addScript(JURI::base() . "components/com_observatorio/js/graphs.js");
 
 ?>
@@ -223,6 +225,7 @@ $document->addScript(JURI::base() . "components/com_observatorio/js/graphs.js");
 
         <div class="graphs-container">
 
+            <!-- Graph container number one -->
             <div class="graph-group group-number-one">
                 <!-- First row of graphs -->
                 <div class="row">
@@ -312,12 +315,13 @@ $document->addScript(JURI::base() . "components/com_observatorio/js/graphs.js");
                 </div>
             </div>
 
+            <!-- Graph container number two -->
             <div class="graph-group group-number-two">
                 <!-- First row of graphs -->
                 <div class="row">
                     <div class="col-md-8">
                         <div class="card-graph-container">
-                            <div class="card-title morbility-title">
+                            <div class="card-title">
                                 Niveles de Cumplimiento
                             </div>
                             <div id="graph-21">
@@ -329,9 +333,9 @@ $document->addScript(JURI::base() . "components/com_observatorio/js/graphs.js");
                     <div class="col-md-4">
                         <div class="card-graph-container">
                             <div class="card-title">
-                                Atención Médica
+                                Capacitación de colaboradores
                             </div>
-                            <div id="graph-12">
+                            <div id="graph-22">
                                 Gráficas
                             </div>
                         </div>
@@ -343,12 +347,12 @@ $document->addScript(JURI::base() . "components/com_observatorio/js/graphs.js");
                 <!-- Second row of graphs -->
                 <div class="row">
 
-                    <div class="col-md-4">
+                    <div class="col-md-8">
                         <div class="card-graph-container">
                             <div class="card-title">
-                                Atención Médica
+                                Capcitación Líderes VS Colaboradores por Empresa
                             </div>
-                            <div id="graph-12">
+                            <div id="graph-23">
                                 Gráficas
                             </div>
                         </div>
@@ -357,24 +361,74 @@ $document->addScript(JURI::base() . "components/com_observatorio/js/graphs.js");
                     <div class="col-md-4">
                         <div class="card-graph-container">
                             <div class="card-title">
-                                Atención Médica (Porcentaje)
+                                Capacitación de líderes
                             </div>
-                            <div id="graph-13">
+                            <div id="graph-24">
                                 Gráficas
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-md-4">
+                </div>
+            </div>
+
+
+            <!-- Graph container number three -->
+            <div class="graph-group group-number-three">
+                <!-- First row of graphs -->
+                <div class="row">
+                    <div class="col-md-6">
                         <div class="card-graph-container">
                             <div class="card-title">
-                                Morbilidades (Porcentaje)
+                                Encuesta Salud
                             </div>
-                            <div id="graph-14">
-                                Gráficas
+                            <div id="graph-31">
+
                             </div>
                         </div>
                     </div>
+
+                    <div class="col-md-6">
+                        <div class="card-graph-container">
+                            <div class="card-title">
+                                Encuesta Gestión de la energía
+                            </div>
+                            <div id="graph-32">
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="card-graph-container">
+                            <div class="card-title">
+                                Encuesta Bienestar
+                            </div>
+                            <div id="graph-33">
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="card-graph-container">
+                            <div class="card-title">
+                                Encuesta Programas de la empresa
+                            </div>
+                            <div id="graph-34">
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+                <!-- Second row of graphs -->
+                <div class="row">
+
+
 
                 </div>
             </div>

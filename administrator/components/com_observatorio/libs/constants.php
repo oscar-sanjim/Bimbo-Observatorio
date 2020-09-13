@@ -38,12 +38,14 @@ class Constants
         "colaboradores_activos_programas_bienestar" => 24,
         "capacitacion_lideres_objetivo" => 25,
         "capacitacion_lideres_terminado" => 26,
-        "escuela_bienestar_objetivo" => 27,
-        "escuela_bienestar_terminados" => 28,
-        "encuesta_salud" => 29,
-        "encuesta_gestion_energia" => 30,
-        "encuesta_bienestar" => 31,
-        "encuesta_programas_empresa" => 32
+        "capacitacion_colaboradores_objetivo" => 27,
+        "capacitacion_colaboradores_terminado" => 28,
+        "escuela_bienestar_objetivo" => 29,
+        "escuela_bienestar_terminados" => 30,
+        "encuesta_salud" => 31,
+        "encuesta_gestion_energia" => 32,
+        "encuesta_bienestar" => 33,
+        "encuesta_programas_empresa" => 34
     );
 
 }

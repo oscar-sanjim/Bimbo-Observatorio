@@ -10,6 +10,13 @@ function getGroupGraphs(groupNumber) {
 
     }else if(groupNumber === "two"){
         graphComplianceLevelByOrganization();
+        graphTrainingLeadersAndCollaborators();
+        graphTrainingLeadersPercentage();
+        graphTrainingCollaboratorsPercentage();
+
+    }else if(groupNumber === "three"){
+        graphHealthSurvey();
+
 
     }
 }
@@ -34,6 +41,7 @@ jQuery(document).ready(function () {
             buttons: {
                 contextButton: {
                     menuItems: [
+                        'viewFullscreen',
                         'printChart',
                         'separator',
                         'downloadPNG',

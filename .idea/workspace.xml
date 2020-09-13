@@ -3,16 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="f5be51a4-5e79-4e6d-8274-a4ba4f0b6af9" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/administrator/components/com_observatorio/libs/constants.php" afterPath="$PROJECT_DIR$/administrator/components/com_observatorio/libs/constants.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/com_observatorio/controller.php" afterPath="$PROJECT_DIR$/components/com_observatorio/controller.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/com_observatorio/css/dashboard.css" afterPath="$PROJECT_DIR$/components/com_observatorio/css/dashboard.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/com_observatorio/css/dashboard.css.map" afterPath="$PROJECT_DIR$/components/com_observatorio/css/dashboard.css.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/com_observatorio/css/dashboard.scss" afterPath="$PROJECT_DIR$/components/com_observatorio/css/dashboard.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/com_observatorio/js/dashboard.js" afterPath="$PROJECT_DIR$/components/com_observatorio/js/dashboard.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/com_observatorio/js/graphs.js" afterPath="$PROJECT_DIR$/components/com_observatorio/js/graphs.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/com_observatorio/js/graphs_group_two.js" afterPath="$PROJECT_DIR$/components/com_observatorio/js/graphs_group_two.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/com_observatorio/libs/graphs.php" afterPath="$PROJECT_DIR$/components/com_observatorio/libs/graphs.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/com_observatorio/models/dashboard.php" afterPath="$PROJECT_DIR$/components/com_observatorio/models/dashboard.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/com_observatorio/views/dashboard/tmpl/default.php" afterPath="$PROJECT_DIR$/components/com_observatorio/views/dashboard/tmpl/default.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/com_observatorio/views/dashboard/view.html.php" afterPath="$PROJECT_DIR$/components/com_observatorio/views/dashboard/view.html.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -27,8 +27,8 @@
       <file leaf-file-name="controller.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/components/com_observatorio/controller.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="616">
-              <caret line="101" column="32" lean-forward="true" selection-start-line="101" selection-start-column="32" selection-end-line="101" selection-end-column="32" />
+            <state relative-caret-position="481">
+              <caret line="112" column="55" lean-forward="false" selection-start-line="112" selection-start-column="18" selection-end-line="112" selection-end-column="55" />
               <folding>
                 <element signature="n#loginUser#0;n#ObservatorioController#0;n#!!top" expanded="false" />
                 <element signature="n#logOutUser#0;n#ObservatorioController#0;n#!!top" expanded="false" />
@@ -40,8 +40,8 @@
       <file leaf-file-name="graphs.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/components/com_observatorio/libs/graphs.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="348">
-              <caret line="92" column="0" lean-forward="false" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
+            <state relative-caret-position="451">
+              <caret line="188" column="39" lean-forward="false" selection-start-line="188" selection-start-column="17" selection-end-line="188" selection-end-column="39" />
               <folding>
                 <element signature="n#getTotalsByMorbidity#0;n#Graphs#0;n#!!top" expanded="false" />
               </folding>
@@ -52,22 +52,14 @@
       <file leaf-file-name="dashboard.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/components/com_observatorio/models/dashboard.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="496">
-              <caret line="278" column="9" lean-forward="true" selection-start-line="278" selection-start-column="9" selection-end-line="278" selection-end-column="9" />
+            <state relative-caret-position="139">
+              <caret line="431" column="7" lean-forward="true" selection-start-line="431" selection-start-column="7" selection-end-line="431" selection-end-column="7" />
               <folding>
                 <element signature="e#6#252#0#PHP" expanded="true" />
                 <element signature="n#groupByMorbility#0;n#ObservatorioModelDashboard#0;n#!!top" expanded="false" />
+                <element signature="n#getLeadersTrainingPercentage#0;n#ObservatorioModelDashboard#0;n#!!top" expanded="false" />
+                <element signature="n#getCollaboratorsTrainingPercentage#0;n#ObservatorioModelDashboard#0;n#!!top" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="view.html.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/components/com_observatorio/views/dashboard/view.html.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="346">
-              <caret line="38" column="63" lean-forward="false" selection-start-line="38" selection-start-column="63" selection-end-line="38" selection-end-column="63" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -75,13 +67,23 @@
       <file leaf-file-name="default.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/components/com_observatorio/views/dashboard/tmpl/default.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="268">
-              <caret line="328" column="42" lean-forward="true" selection-start-line="328" selection-start-column="42" selection-end-line="328" selection-end-column="42" />
+            <state relative-caret-position="-12">
+              <caret line="316" column="0" lean-forward="true" selection-start-line="316" selection-start-column="0" selection-end-line="316" selection-end-column="0" />
               <folding>
-                <element signature="n#div#0;n#div#0;n#!!top" expanded="false" />
                 <element signature="n#div#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="false" />
-                <element signature="n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="false" />
-                <element signature="n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="false" />
+                <element signature="n#div#1;n#div#1;n#div#1;n#div#0;n#!!top" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dashboard.scss" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/components/com_observatorio/css/dashboard.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="91" column="21" lean-forward="false" selection-start-line="91" selection-start-column="21" selection-end-line="91" selection-end-column="21" />
+              <folding>
+                <element signature="e#91#1333#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -90,18 +92,8 @@
       <file leaf-file-name="graphs.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/components/com_observatorio/js/graphs.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dashboard.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/components/com_observatorio/js/dashboard.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="10" lean-forward="true" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
+            <state relative-caret-position="325">
+              <caret line="43" column="41" lean-forward="false" selection-start-line="43" selection-start-column="41" selection-end-line="43" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -110,23 +102,32 @@
       <file leaf-file-name="graphs_group_two.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/components/com_observatorio/js/graphs_group_two.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="675">
-              <caret line="45" column="31" lean-forward="false" selection-start-line="45" selection-start-column="31" selection-end-line="45" selection-end-column="31" />
-              <folding />
+            <state relative-caret-position="302">
+              <caret line="214" column="34" lean-forward="false" selection-start-line="214" selection-start-column="34" selection-end-line="214" selection-end-column="34" />
+              <folding>
+                <element signature="e#1132#2479#0" expanded="false" />
+                <element signature="e#4253#4307#0" expanded="false" />
+                <element signature="e#4332#4380#0" expanded="false" />
+                <element signature="e#4405#4464#0" expanded="false" />
+                <element signature="e#4489#4667#0" expanded="false" />
+                <element signature="e#4726#5010#0" expanded="false" />
+                <element signature="e#5903#6050#0" expanded="false" />
+                <element signature="n#!!block;n#graphTrainingLeadersPercentage#0" expanded="false" />
+                <element signature="e#12274#13370#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="graphs_group_one.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/components/com_observatorio/js/graphs_group_one.js">
+      <file leaf-file-name="graphs_group_three.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/components/com_observatorio/js/graphs_group_three.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="103" column="12" lean-forward="false" selection-start-line="103" selection-start-column="12" selection-end-line="103" selection-end-column="28" />
+            <state relative-caret-position="182">
+              <caret line="174" column="87" lean-forward="false" selection-start-line="174" selection-start-column="87" selection-end-line="174" selection-end-column="87" />
               <folding>
-                <element signature="n#!!doc" expanded="true" />
-                <element signature="e#252#2692#0" expanded="false" />
-                <element signature="n#!!block;n#graphTotalByMedicalAttention#0" expanded="false" />
-                <marker date="1599623013272" expanded="true" signature="10492:10506" ph="..." />
+                <element signature="e#2337#3800#0" expanded="false" />
+                <element signature="e#3874#5337#0" expanded="false" />
+                <element signature="e#6950#8419#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -143,13 +144,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>r</find>
-      <find>card</find>
-      <find>mail</find>
-      <find>input</find>
-      <find>full-con</find>
-      <find>window</find>
-      <find>die</find>
       <find>filter-se</find>
       <find>100</find>
       <find>1000</find>
@@ -158,7 +152,6 @@
       <find>card-title</find>
       <find>formatter</find>
       <find>forma</find>
-      <find>group</find>
       <find>order</find>
       <find>inicio</find>
       <find>filter</find>
@@ -171,8 +164,16 @@
       <find>organization</find>
       <find>each</find>
       <find>graph-21</find>
-      <find>alert</find>
       <find>getGroupOneGraphs</find>
+      <find>getLeadersAndCollaboratorsTraining</find>
+      <find>revers</find>
+      <find>vs cola</find>
+      <find>Capcitación Líderes VS Colaboradores</find>
+      <find>pie</find>
+      <find>morbidit</find>
+      <find>morbility-title</find>
+      <find>group</find>
+      <find>alert</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$</dir>
@@ -193,7 +194,6 @@
         <option value="$PROJECT_DIR$/administrator/components/com_observatorio/controllers/batches.php" />
         <option value="$PROJECT_DIR$/administrator/components/com_observatorio/views/batch/tmpl/view.html.php" />
         <option value="$PROJECT_DIR$/administrator/components/com_observatorio/uploads/1598583364.csv" />
-        <option value="$PROJECT_DIR$/administrator/components/com_observatorio/libs/constants.php" />
         <option value="$PROJECT_DIR$/administrator/components/com_observatorio/views/batch/view.html.php" />
         <option value="$PROJECT_DIR$/components/com_observatorio/observatorio.php" />
         <option value="$PROJECT_DIR$/administrator/components/com_observatorio/views/batch/tmpl/edit.php" />
@@ -219,15 +219,17 @@
         <option value="$PROJECT_DIR$/administrator/components/com_observatorio/models/records.php" />
         <option value="$PROJECT_DIR$/administrator/components/com_observatorio/views/records/view.html.php" />
         <option value="$PROJECT_DIR$/components/com_observatorio/views/dashboard/view.html.php" />
-        <option value="$PROJECT_DIR$/components/com_observatorio/css/dashboard.scss" />
         <option value="$PROJECT_DIR$/components/com_observatorio/js/graphs_group_one.js" />
-        <option value="$PROJECT_DIR$/components/com_observatorio/controller.php" />
-        <option value="$PROJECT_DIR$/components/com_observatorio/libs/graphs.php" />
-        <option value="$PROJECT_DIR$/components/com_observatorio/models/dashboard.php" />
-        <option value="$PROJECT_DIR$/components/com_observatorio/js/graphs.js" />
         <option value="$PROJECT_DIR$/components/com_observatorio/js/dashboard.js" />
+        <option value="$PROJECT_DIR$/administrator/components/com_observatorio/libs/constants.php" />
+        <option value="$PROJECT_DIR$/components/com_observatorio/controller.php" />
+        <option value="$PROJECT_DIR$/components/com_observatorio/models/dashboard.php" />
+        <option value="$PROJECT_DIR$/components/com_observatorio/libs/graphs.php" />
+        <option value="$PROJECT_DIR$/components/com_observatorio/js/graphs.js" />
+        <option value="$PROJECT_DIR$/components/com_observatorio/js/graphs_group_three.js" />
         <option value="$PROJECT_DIR$/components/com_observatorio/views/dashboard/tmpl/default.php" />
         <option value="$PROJECT_DIR$/components/com_observatorio/js/graphs_group_two.js" />
+        <option value="$PROJECT_DIR$/components/com_observatorio/css/dashboard.scss" />
       </list>
     </option>
   </component>
@@ -259,6 +261,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -391,6 +394,28 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="libs" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bimbo-observatorio" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bimbo-observatorio" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="components" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com_observatorio" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="js" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
@@ -419,7 +444,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -429,18 +453,18 @@
     <property name="SearchEverywhereHistoryKey" value=";&#9;null&#9;null" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/components/com_observatorio" />
-      <recent name="$PROJECT_DIR$/administrator/components/com_observatorio/views/batch" />
-      <recent name="$PROJECT_DIR$/administrator/components/com_observatorio/controllers" />
-      <recent name="$PROJECT_DIR$/administrator/components" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/components/com_observatorio/js" />
       <recent name="$PROJECT_DIR$/administrator/components/com_observatorio/models" />
       <recent name="$PROJECT_DIR$/administrator/components/com_observatorio/views" />
       <recent name="$PROJECT_DIR$/templates/observatorio/libs/nice-select" />
       <recent name="$PROJECT_DIR$/components/com_observatorio/images" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/components/com_observatorio" />
+      <recent name="$PROJECT_DIR$/administrator/components/com_observatorio/views/batch" />
+      <recent name="$PROJECT_DIR$/administrator/components/com_observatorio/controllers" />
+      <recent name="$PROJECT_DIR$/administrator/components" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -551,27 +575,31 @@
       <workItem from="1599527289146" duration="847000" />
       <workItem from="1599528197566" duration="4267000" />
       <workItem from="1599583576093" duration="585000" />
-      <workItem from="1599611403327" duration="13523000" />
+      <workItem from="1599611403327" duration="14422000" />
+      <workItem from="1599662116102" duration="4000" />
+      <workItem from="1599704877940" duration="4573000" />
+      <workItem from="1599789484067" duration="6219000" />
+      <workItem from="1599972124059" duration="9248000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="81271000" />
+    <option name="totallyTimeSpent" value="102214000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22460657" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2360515" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26751593" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -587,17 +615,17 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26751593" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22460657" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2360515" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -608,17 +636,15 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="2" />
+      <option name="time" value="4" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/administrator/components/com_observatorio/sql/updates/mysql/0.0.0.1.sql" />
     <entry file="file://$PROJECT_DIR$/administrator/components/com_observatorio/tables/batch.php" />
     <entry file="file://$PROJECT_DIR$/administrator/components/com_observatorio/views/batches/view.html.php" />
     <entry file="file://$PROJECT_DIR$/administrator/components/com_observatorio/controllers/batches.php" />
     <entry file="file://$PROJECT_DIR$/administrator/components/com_observatorio/uploads/1598583364.csv" />
-    <entry file="file://$PROJECT_DIR$/administrator/components/com_observatorio/libs/constants.php" />
     <entry file="file://$PROJECT_DIR$/components/com_observatorio/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -637,7 +663,6 @@
     <entry file="file://$PROJECT_DIR$/administrator/components/com_observatorio/views/batch/tmpl/edit.php" />
     <entry file="file://$PROJECT_DIR$/administrator/components/com_observatorio/views/batch/view.html.php" />
     <entry file="file://$PROJECT_DIR$/administrator/components/com_observatorio/observatorio.xml" />
-    <entry file="file://$PROJECT_DIR$/administrator/components/com_observatorio/controller.php" />
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -792,13 +817,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/administrator/components/com_observatorio/controllers/batch.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="121">
-          <caret line="116" column="12" lean-forward="false" selection-start-line="116" selection-start-column="12" selection-end-line="116" selection-end-column="77" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/administrator/components/com_observatorio/views/batches/tmpl/default.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="293">
@@ -830,7 +848,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/components/com_observatorio/views/dashboard/view.html.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
+        <state relative-caret-position="480">
           <caret line="38" column="63" lean-forward="false" selection-start-line="38" selection-start-column="63" selection-end-line="38" selection-end-column="63" />
           <folding />
         </state>
@@ -840,47 +858,68 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-926">
           <caret line="7" column="16" lean-forward="false" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/administrator/components/com_observatorio/controller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/administrator/components/com_observatorio/controllers/batch.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1005">
+          <caret line="67" column="46" lean-forward="false" selection-start-line="67" selection-start-column="46" selection-end-line="67" selection-end-column="46" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/components/com_observatorio/css/dashboard.scss">
+    <entry file="file://$PROJECT_DIR$/administrator/components/com_observatorio/libs/constants.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="185" column="12" lean-forward="true" selection-start-line="185" selection-start-column="12" selection-end-line="185" selection-end-column="25" />
+        <state relative-caret-position="615">
+          <caret line="41" column="45" lean-forward="false" selection-start-line="41" selection-start-column="9" selection-end-line="41" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/com_observatorio/js/dashboard.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1035">
+          <caret line="69" column="47" lean-forward="false" selection-start-line="69" selection-start-column="47" selection-end-line="69" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/com_observatorio/js/graphs_group_one.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="42" column="12" lean-forward="true" selection-start-line="42" selection-start-column="12" selection-end-line="76" selection-end-column="15" />
           <folding>
-            <element signature="e#91#1256#0" expanded="false" />
-            <element signature="e#679#827#0" expanded="false" />
-            <element signature="e#1830#1897#0" expanded="false" />
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#1529#2630#0" expanded="false" />
+            <element signature="n#!!block;n#graphTotalByMorbidities#0" expanded="false" />
+            <element signature="n#!!block;n#graphTotalByMedicalAttention#0" expanded="false" />
+            <marker date="1599623013272" expanded="true" signature="10492:10506" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/components/com_observatorio/libs/graphs.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="92" column="0" lean-forward="false" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
+        <state relative-caret-position="451">
+          <caret line="188" column="39" lean-forward="false" selection-start-line="188" selection-start-column="17" selection-end-line="188" selection-end-column="39" />
           <folding>
             <element signature="n#getTotalsByMorbidity#0;n#Graphs#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/components/com_observatorio/models/dashboard.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="496">
-          <caret line="278" column="9" lean-forward="true" selection-start-line="278" selection-start-column="9" selection-end-line="278" selection-end-column="9" />
-          <folding>
-            <element signature="e#6#252#0#PHP" expanded="true" />
-            <element signature="n#groupByMorbility#0;n#ObservatorioModelDashboard#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/components/com_observatorio/controller.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="616">
-          <caret line="101" column="32" lean-forward="true" selection-start-line="101" selection-start-column="32" selection-end-line="101" selection-end-column="32" />
+        <state relative-caret-position="481">
+          <caret line="112" column="55" lean-forward="false" selection-start-line="112" selection-start-column="18" selection-end-line="112" selection-end-column="55" />
           <folding>
             <element signature="n#loginUser#0;n#ObservatorioController#0;n#!!top" expanded="false" />
             <element signature="n#logOutUser#0;n#ObservatorioController#0;n#!!top" expanded="false" />
@@ -888,53 +927,75 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/components/com_observatorio/js/graphs_group_one.js">
+    <entry file="file://$PROJECT_DIR$/components/com_observatorio/models/dashboard.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="103" column="12" lean-forward="false" selection-start-line="103" selection-start-column="12" selection-end-line="103" selection-end-column="28" />
+        <state relative-caret-position="139">
+          <caret line="431" column="7" lean-forward="true" selection-start-line="431" selection-start-column="7" selection-end-line="431" selection-end-column="7" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#252#2692#0" expanded="false" />
-            <element signature="n#!!block;n#graphTotalByMedicalAttention#0" expanded="false" />
-            <marker date="1599623013272" expanded="true" signature="10492:10506" ph="..." />
+            <element signature="e#6#252#0#PHP" expanded="true" />
+            <element signature="n#groupByMorbility#0;n#ObservatorioModelDashboard#0;n#!!top" expanded="false" />
+            <element signature="n#getLeadersTrainingPercentage#0;n#ObservatorioModelDashboard#0;n#!!top" expanded="false" />
+            <element signature="n#getCollaboratorsTrainingPercentage#0;n#ObservatorioModelDashboard#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/com_observatorio/js/graphs.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="43" column="41" lean-forward="false" selection-start-line="43" selection-start-column="41" selection-end-line="43" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/com_observatorio/js/graphs_group_three.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="174" column="87" lean-forward="false" selection-start-line="174" selection-start-column="87" selection-end-line="174" selection-end-column="87" />
+          <folding>
+            <element signature="e#2337#3800#0" expanded="false" />
+            <element signature="e#3874#5337#0" expanded="false" />
+            <element signature="e#6950#8419#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/components/com_observatorio/views/dashboard/tmpl/default.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="328" column="42" lean-forward="true" selection-start-line="328" selection-start-column="42" selection-end-line="328" selection-end-column="42" />
+        <state relative-caret-position="-12">
+          <caret line="316" column="0" lean-forward="true" selection-start-line="316" selection-start-column="0" selection-end-line="316" selection-end-column="0" />
           <folding>
-            <element signature="n#div#0;n#div#0;n#!!top" expanded="false" />
             <element signature="n#div#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#div#1;n#div#1;n#div#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/components/com_observatorio/js/graphs_group_two.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="675">
-          <caret line="45" column="31" lean-forward="false" selection-start-line="45" selection-start-column="31" selection-end-line="45" selection-end-column="31" />
-          <folding />
+        <state relative-caret-position="302">
+          <caret line="214" column="34" lean-forward="false" selection-start-line="214" selection-start-column="34" selection-end-line="214" selection-end-column="34" />
+          <folding>
+            <element signature="e#1132#2479#0" expanded="false" />
+            <element signature="e#4253#4307#0" expanded="false" />
+            <element signature="e#4332#4380#0" expanded="false" />
+            <element signature="e#4405#4464#0" expanded="false" />
+            <element signature="e#4489#4667#0" expanded="false" />
+            <element signature="e#4726#5010#0" expanded="false" />
+            <element signature="e#5903#6050#0" expanded="false" />
+            <element signature="n#!!block;n#graphTrainingLeadersPercentage#0" expanded="false" />
+            <element signature="e#12274#13370#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/components/com_observatorio/js/graphs.js">
+    <entry file="file://$PROJECT_DIR$/components/com_observatorio/css/dashboard.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/com_observatorio/js/dashboard.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="10" lean-forward="true" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
-          <folding />
+        <state relative-caret-position="255">
+          <caret line="91" column="21" lean-forward="false" selection-start-line="91" selection-start-column="21" selection-end-line="91" selection-end-column="21" />
+          <folding>
+            <element signature="e#91#1333#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

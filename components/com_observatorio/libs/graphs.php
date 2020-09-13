@@ -111,4 +111,92 @@ class Graphs{
 
         return $response;
     }
+
+
+    /**
+     * Retrieves the totals of the trainings by leaders and collaborators.
+     * @return array
+     */
+    public function getLeadersAndCollaboratorsTraining(){
+        $data = $this->model->getLeadersAndCollaboratorsTraining($this->intialTrim, $this->finalTrim, $this->intialYear, $this->finalYear, array());
+        $organizationsData = array();
+
+        foreach($data as $record){
+
+            // Create the record for the org. if not available.
+            if(array_key_exists($record->organizacion, $organizationsData) == false){
+                $organizationsData[$record->organizacion] = array();
+
+            }
+
+            array_push($organizationsData[$record->organizacion], array(
+                "capacitacion_colaboradores_terminado" => $record->capacitacion_colaboradores_terminado,
+                "capacitacion_lideres_terminado" => $record->capacitacion_lideres_terminado,
+                "year" => $record->year,
+                "trimester" => $record->trimester
+            ));
+
+        }
+
+        $response = $organizationsData;
+
+        return $response;
+    }
+
+    /**
+     * Retrieves the percenatges of the trainings by leaders and collaborators.
+     * @return array
+     */
+    public function getLeadersTrainingPercentage(){
+        $data = $this->model->getLeadersTrainingPercentage($this->intialTrim, $this->finalTrim, $this->intialYear, $this->finalYear, array());
+
+        return $data;
+    }
+
+
+    /**
+     * Retrieves the percenatges of the trainings by leaders and collaborators.
+     * @return array
+     */
+    public function getCollaboratorsTrainingPercentage(){
+        $data = $this->model->getCollaboratorsTrainingPercentage($this->intialTrim, $this->finalTrim, $this->intialYear, $this->finalYear, array());
+
+        return $data;
+    }
+
+
+    /**
+     * Retrieves the totals of
+     * @return array
+     */
+    public function getSurveysData(){
+        $data = $this->model->getSurveysData($this->intialTrim, $this->finalTrim, $this->intialYear, $this->finalYear, array());
+        $organizationsData = array();
+
+
+        foreach($data as $record){
+
+            // Create the record for the org. if not available.
+            if(array_key_exists($record->organizacion, $organizationsData) == false){
+                $organizationsData[$record->organizacion] = array();
+
+            }
+
+            array_push($organizationsData[$record->organizacion], array(
+                "healt_survey_totals" => $record->encuesta_salud,
+                "energy_survey_totals" => $record->encuesta_gestion_energia,
+                "wealth_survey_totals" => $record->encuesta_bienestar,
+                "programs_survey_totals" => $record->encuesta_programas_empresa,
+                "year" => $record->year,
+                "trimester" => $record->trimester
+            ));
+
+        }
+
+        $response = $organizationsData;
+
+        return $response;
+
+        return $data;
+    }
 }

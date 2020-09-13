@@ -97,6 +97,22 @@ class ObservatorioController extends JControllerLegacy
             case 'compliance_level_by_organization':
                 $data = $graphManager->getComplianceLevels();
                 break;
+
+            case 'leaders_vs_collaborators_training':
+                $data = $graphManager->getLeadersAndCollaboratorsTraining();
+                break;
+
+            case 'leaders_training_percentage':
+                $data = $graphManager->getLeadersTrainingPercentage();
+                break;
+
+            case 'collaborators_training_percentage':
+                $data = $graphManager->getCollaboratorsTrainingPercentage();
+                break;
+
+            case 'surveys_by_organization_and_trimester':
+                $data = $graphManager->getSurveysData();
+                break;
         }
 
         echo json_encode($data);
