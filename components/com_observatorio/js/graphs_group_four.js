@@ -97,6 +97,105 @@ function graphTotalsAbsents() {
 }
 
 
+function graphTotalsAbsentsByCountry() {
+
+
+    var url = HOST + URI + getFiltersQueryString() + "&graph=total_absents_by_country_and_date";
+    $.ajax({
+        url: url,
+        type: "get",
+        success: function (response) {
+            var data = JSON.parse(response);
+
+            var absentsData = [];
+            var xLabels = [];
+
+            Object.keys(data).forEach(function (key) {
+                // key == to organization
+
+                var absentsValues = [];
+
+                data[key].forEach(function (row) {
+
+                    absentsValues.push(parseInt(row.total_absents));
+
+                    // Appending X axis labels.
+                    if (xLabels.includes(row.year + "-" + TRIMESTERS[row.trimester]) === false) {
+                        xLabels.push(row.year + "-" + TRIMESTERS[row.trimester]);
+
+                    }
+                });
+
+                // Survey columns data by type.
+                absentsData.push({
+                    'name': key,
+                    'display': key,
+                    'data': absentsValues
+                });
+            });
+
+
+
+            // Total Absents Data
+            Highcharts.chart('graph-46', {
+
+                chart: {
+                    type: 'column'
+                },
+                title: {
+                    text: ''
+                },
+                xAxis: {
+                    categories: xLabels,
+                    min: 0,
+                    max: (absentsData[0].data.length > 2) ? 1 : absentsData[0].data.length - 1,
+                    scrollbar: {
+                        enabled: true
+                    },
+                    tickLength: 0
+                },
+                yAxis: {
+                    allowDecimals: false,
+                    min: 0,
+                    title: {
+                        text: 'Total'
+                    }
+                },
+                colors: COLORS,
+                tooltip: {
+                    formatter: function () {
+                        return '<b>' + this.x + '</b><br/>' +
+                            this.series.name + ': ' + this.y + '<br/>'
+                    }
+                },
+
+                plotOptions: {
+                    column: {
+                        pointPadding: 0.2,
+                        borderWidth: 0
+                    }
+                },
+                legend: {
+                    labelFormatter: function () {
+                        return this.name.split("-")[0];
+                    }
+                },
+                series: absentsData
+            });
+
+
+
+        },
+        error: function () {
+
+
+        }
+    });
+
+
+}
+
+
 function graphAbsentsTypes() {
 
 
@@ -185,4 +284,98 @@ function graphAbsentsTypes() {
     });
 
 
+}
+
+function graphComplianceLevelByOrganization() {
+    var url = HOST + URI + getFiltersQueryString() + "&graph=compliance_level_by_organization";
+    $.ajax({
+        url: url,
+        type: "get",
+        success: function (response) {
+
+            var data = JSON.parse(response);
+
+            var linesData = [];
+            var xLabels = [];
+            var counter = 0;
+
+            Object.keys(data).forEach(function (key) {
+
+                var values = [];
+                data[key].forEach(function (row) {
+                    values.push(parseInt(row.nivel_cumplimiento));
+
+                    // Appending X axis labels.
+                    if (xLabels.includes(row.year + "-" + TRIMESTERS[row.trimester]) === false) {
+                        xLabels.push(row.year + "-" + TRIMESTERS[row.trimester]);
+
+                    }
+                });
+
+
+                linesData.push({
+                    'name': key,
+                    'data': values,
+                    'visible': (counter++ < 5)
+                });
+            });
+
+
+            Highcharts.chart('graph-21', {
+                title: {
+                    text: ''
+                },
+                subtitle: {
+                    text: ''
+                },
+                colors: COLORS,
+                yAxis: {
+                    title: {
+                        text: 'Nivel de Cumplimiento'
+                    }
+                },
+                xAxis: {
+                    categories: xLabels
+                },
+
+                legend: {
+                    layout: 'vertical',
+                    align: 'right',
+                    verticalAlign: 'middle'
+                },
+
+                plotOptions: {
+                    series: {
+                        label: {
+                            connectorAllowed: false
+                        }
+                    }
+                },
+
+                series: linesData,
+
+                responsive: {
+                    rules: [{
+                        condition: {
+                            maxWidth: 500
+                        },
+                        chartOptions: {
+                            legend: {
+                                layout: 'horizontal',
+                                align: 'center',
+                                verticalAlign: 'bottom'
+                            }
+                        }
+                    }]
+                }
+
+            });
+
+
+        },
+        error: function () {
+
+
+        }
+    });
 }

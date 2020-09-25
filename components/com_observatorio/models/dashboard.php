@@ -308,6 +308,7 @@ class ObservatorioModelDashboard extends JModelItem
 
 
 
+
     /**
      * Retrieves the compliance level by organization and by period of time
      * @param $intialTrim
@@ -325,7 +326,7 @@ class ObservatorioModelDashboard extends JModelItem
         $query = $db->getQuery(true);
 
         // Order it by the ordering field.
-        $query->select('r.organizacion, r.capacitacion_lideres_terminado, r.capacitacion_colaboradores_terminado, b.year, b. trimester');
+        $query->select('r.organizacion, r.pais, r.capacitacion_lideres_terminado, r.capacitacion_colaboradores_terminado, b.year, b. trimester');
         $query->from($db->quoteName('#__com_observatorio_records', 'r'));
         $query->join('INNER', $db->quoteName('#__com_observatorio_batch', 'b') . ' ON ' . $db->quoteName('r.batch') . ' = ' . $db->quoteName('b.id'));
         $query->where($db->quoteName('b.trimester') . ' >= ' . $db->quote($intialTrim) . ' AND ' . 'b.year >= ' . $db->quote($intialYear));
@@ -336,6 +337,50 @@ class ObservatorioModelDashboard extends JModelItem
         }
 
         $query->order('year ASC, trimester ASC');
+
+        // Reset the query using our newly populated query object.
+        $db->setQuery($query);
+
+        // Load the results as a list of stdClass objects (see later for more options on retrieving data).
+        $results = $db->loadObjectList();
+
+        return $results;
+    }
+
+
+    /**
+     * Retrieves the compliance level by organization and by period of time
+     * @param $intialTrim
+     * @param $finalTrim
+     * @param $intialYear
+     * @param $finalYear
+     * @param $organizations
+     * @return mixed
+     */
+    public function getLeadersAndCollaboratorsTrainingByCountry($intialTrim, $finalTrim, $intialYear, $finalYear, $organizations){
+        // Get a db connection.
+        $db = JFactory::getDbo();
+
+        // Create a new query object.
+        $query = $db->getQuery(true);
+
+        // Order it by the ordering field.
+        $query->select('r.pais, SUM(r.capacitacion_lideres_terminado) as capacitacion_lideres_terminado, SUM(r.capacitacion_colaboradores_terminado) as capacitacion_colaboradores_terminado, b.year, b. trimester');
+        $query->from($db->quoteName('#__com_observatorio_records', 'r'));
+        $query->join('INNER', $db->quoteName('#__com_observatorio_batch', 'b') . ' ON ' . $db->quoteName('r.batch') . ' = ' . $db->quoteName('b.id'));
+        $query->where($db->quoteName('b.trimester') . ' >= ' . $db->quote($intialTrim) . ' AND ' . 'b.year >= ' . $db->quote($intialYear));
+        $query->where($db->quoteName('b.trimester') . ' <= ' . $db->quote($finalTrim) . ' AND ' . 'b.year <= ' . $db->quote($finalYear));
+
+        $query->group(array($db->quoteName('r.pais'), $db->quoteName('b.year'), $db->quoteName('b.trimester')));
+
+        if($organizations != ""){
+            $query->where($db->quoteName('r.organizacion') . ' IN (' . $organizations . ')');
+        }
+
+        $query->order('year ASC, trimester ASC');
+
+        //echo($query->__toString());die;
+
 
         // Reset the query using our newly populated query object.
         $db->setQuery($query);
@@ -468,6 +513,50 @@ class ObservatorioModelDashboard extends JModelItem
     }
 
 
+    /**
+     * @param $intialTrim
+     * @param $finalTrim
+     * @param $intialYear
+     * @param $finalYear
+     * @param $organizations
+     * @return mixed
+     */
+    public function getSurveysDataByCountry($intialTrim, $finalTrim, $intialYear, $finalYear, $organizations){
+        // Get a db connection.
+        $db = JFactory::getDbo();
+
+        // Create a new query object.
+        $query = $db->getQuery(true);
+
+
+        // Select all records from the user profile table where key begins with "custom.".
+        // Order it by the ordering field.
+        $query->select('r.pais, b.year, b.trimester, SUM(r.encuesta_salud) as encuesta_salud, SUM(r.encuesta_gestion_energia) as encuesta_gestion_energia,  SUM(r.encuesta_bienestar) as encuesta_bienestar, SUM(r.encuesta_programas_empresa) as encuesta_programas_empresa');
+        $query->from($db->quoteName('#__com_observatorio_records', 'r'));
+        $query->join('INNER', $db->quoteName('#__com_observatorio_batch', 'b') . ' ON ' . $db->quoteName('r.batch') . ' = ' . $db->quoteName('b.id'));
+        $query->where($db->quoteName('b.trimester') . ' >= ' . $db->quote($intialTrim) . ' AND ' . 'b.year >= ' . $db->quote($intialYear));
+        $query->where($db->quoteName('b.trimester') . ' <= ' . $db->quote($finalTrim) . ' AND ' . 'b.year <= ' . $db->quote($finalYear));
+
+        if($organizations != ""){
+            $query->where($db->quoteName('r.organizacion') . ' IN (' . $organizations . ')');
+        }
+
+        $query->group(array($db->quoteName('r.pais'), $db->quoteName('b.year'), $db->quoteName('b.trimester')));
+
+        $query->order('year ASC, trimester ASC');
+
+        // Reset the query using our newly populated query object.
+        $db->setQuery($query);
+
+        //echo($query->__toString()); die;
+
+        // Load the results as a list of stdClass objects (see later for more options on retrieving data).
+        $results = $db->loadObjectList();
+
+        return $results;
+    }
+
+
 
     /**
      * @param $intialTrim
@@ -496,6 +585,48 @@ class ObservatorioModelDashboard extends JModelItem
         if($organizations != ""){
             $query->where($db->quoteName('r.organizacion') . ' IN (' . $organizations . ')');
         }
+
+        $query->order('year ASC, trimester ASC');
+
+        // Reset the query using our newly populated query object.
+        $db->setQuery($query);
+
+        // Load the results as a list of stdClass objects (see later for more options on retrieving data).
+        $results = $db->loadObjectList();
+
+        return $results;
+    }
+
+
+    /**
+     * @param $intialTrim
+     * @param $finalTrim
+     * @param $intialYear
+     * @param $finalYear
+     * @param $organizations
+     * @return mixed
+     */
+    public function getAbsentsByCountryAndDate($intialTrim, $finalTrim, $intialYear, $finalYear, $organizations){
+        // Get a db connection.
+        $db = JFactory::getDbo();
+
+        // Create a new query object.
+        $query = $db->getQuery(true);
+
+
+        // Select all records from the user profile table where key begins with "custom.".
+        // Order it by the ordering field.
+        $query->select('SUM(r.dias_ausentismo) as dias_ausentismo, r.pais, b.year, b. trimester');
+        $query->from($db->quoteName('#__com_observatorio_records', 'r'));
+        $query->join('INNER', $db->quoteName('#__com_observatorio_batch', 'b') . ' ON ' . $db->quoteName('r.batch') . ' = ' . $db->quoteName('b.id'));
+        $query->where($db->quoteName('b.trimester') . ' >= ' . $db->quote($intialTrim) . ' AND ' . 'b.year >= ' . $db->quote($intialYear));
+        $query->where($db->quoteName('b.trimester') . ' <= ' . $db->quote($finalTrim) . ' AND ' . 'b.year <= ' . $db->quote($finalYear));
+
+        if($organizations != ""){
+            $query->where($db->quoteName('r.organizacion') . ' IN (' . $organizations . ')');
+        }
+
+        $query->group(array($db->quoteName('r.pais'), $db->quoteName('b.year'), $db->quoteName('b.trimester')));
 
         $query->order('year ASC, trimester ASC');
 

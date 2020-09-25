@@ -116,6 +116,10 @@ class ObservatorioController extends JControllerLegacy
                 $data = $graphManager->getLeadersAndCollaboratorsTraining();
                 break;
 
+            case 'leaders_vs_collaborators_training_by_country':
+                $data = $graphManager->getLeadersAndCollaboratorsTrainingByCountry();
+                break;
+
             case 'leaders_training_percentage':
                 $data = $graphManager->getLeadersTrainingPercentage();
                 break;
@@ -128,8 +132,16 @@ class ObservatorioController extends JControllerLegacy
                 $data = $graphManager->getSurveysData();
                 break;
 
+            case 'surveys_by_country_and_trimester':
+                $data = $graphManager->getSurveysDataByCountry();
+                break;
+
             case 'total_absents_by_organization_and_date':
                 $data = $graphManager->getAbsentsByOrganizationAndDate();
+                break;
+
+            case 'total_absents_by_country_and_date':
+                $data = $graphManager->getAbsentsByCountryAndDate();
                 break;
 
             case 'percentage_absents_by_type':

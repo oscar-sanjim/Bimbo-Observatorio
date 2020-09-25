@@ -5,7 +5,9 @@
 // Constants.
 var HOST = "";
 var URI = "?option=com_observatorio&task=getGraphData";
-var COLORS = ["#002269", "#A6E1F6", "#248CC0", "#7CCD53", "#6075A1", "#C7ECF9", "#76B7D8", "#ADE094"];
+//var COLORS = ["#002269", "#A6E1F6", "#248CC0", "#7CCD53", "#6075A1", "#C7ECF9", "#76B7D8", "#ADE094"];
+var COLORS = ["#002269", "#A6E1F6", "#248CC0", "#7CCD53", "#b5a512", "#353a59", "#5d4080", "#066475", "#75123E", "#033942", "#8C3F62", "#7F4680", "#398075", "#8F8000"];
+var COLORS_STACKED = ["#9FACC7","#002269","#DEF4FC","#A6E1F6","#ADD4E7","#248CC0","#CEECBF","#7CCD53","#E3DDA6","#b5a512","#B3B5C1","#353a59","#C2B7CF","#5d4080","#A2C5CB","#066475","#BA899F","#75123E","#819CA1","#033942","#D4B7C4","#8C3F62","#CFBACF","#7F4680","#B5CFCB","#398075","#D5CF9F","#8F8000"];
 var TRIMESTERS = {
     "1": "Ene-Mar",
     "2": "Abr-Jun",
@@ -55,6 +57,7 @@ function getFiltersQueryString() {
 
 jQuery(document).ready(function () {
 
+
     // Open/Close the filter windows.
     jQuery(".filter-selected-info").click(function (e) {
         e.stopPropagation();
@@ -80,6 +83,7 @@ jQuery(document).ready(function () {
 
     // Managing the clicks on the navigation items.
     jQuery(".menu-item-container").click(function () {
+
         jQuery(".menu-item-container").each(function () {
             jQuery(this).removeClass("active");
 
@@ -97,5 +101,42 @@ jQuery(document).ready(function () {
         activeGroup = graphsGroup;
 
         getGroupGraphs(activeGroup);
+
+        // Hide mobile menu if opened.
+        jQuery(".menu-main-items-container").removeClass("open");
+    });
+
+    // Handling the click on the Hamburger menu
+    jQuery(".hamburger-container").click(function(){
+        jQuery(".menu-main-items-container").addClass("open");
+
+    });
+
+    jQuery(".close-image-button").click(function(){
+        jQuery(".menu-main-items-container").removeClass("open");
+
+    });
+
+    jQuery(".organization").change(function(){
+        jQuery(".update-button").removeClass("deactivated");
+
+    });
+
+    jQuery(".update-button").click(function(){
+        jQuery("#final-trimester").trigger('change');
+    });
+
+    jQuery(".grap-switcher").change(function () {
+        jQuery(this).siblings(".switch-title").addClass("hide-title");
+        if(jQuery(this).prop("checked")){
+            jQuery(this).siblings(".countries").removeClass("hide-title");
+
+        }else{
+            jQuery(this).siblings(".organizations").removeClass("hide-title");
+
+        }
+
+        var graphsContainer = jQuery(this).closest(".card-graph-container");
+        graphsContainer.find(".graph").toggleClass("hidden-graph");
     });
 });

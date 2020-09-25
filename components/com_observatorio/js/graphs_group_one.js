@@ -97,6 +97,10 @@ function graphTotalByMorbidities() {
         success: function (response) {
             var data = JSON.parse(response);
 
+            data.morbidities.sort(function(a, b){
+                return b.morbidity_total - a.morbidity_total ;
+
+            });
 
             var morbiditiesAlias = [];
             var morbiditiesTotals = [];
@@ -219,7 +223,7 @@ function graphTotalByMorbidities() {
                         showInLegend: true
                     }
                 },
-                colors: COLORS.reverse(),
+                colors: COLORS,
                 series: [{
                     name: 'Porcentaje',
                     colorByPoint: true,
@@ -368,7 +372,7 @@ function graphTotalByMedicalAttention() {
                         showInLegend: true
                     }
                 },
-                colors: COLORS.reverse(),
+                colors: COLORS,
                 series: [{
                     name: 'Porcentaje',
                     colorByPoint: true,

@@ -25,6 +25,8 @@ require_once __DIR__ . "/../../../libs/constants.php";
 
             <th class="center">Organización</th>
 
+            <th class="center">País</th>
+
             <th class="center">Población</th>
 
             <th class="center">Población en Riesgo</th>
@@ -76,6 +78,11 @@ require_once __DIR__ . "/../../../libs/constants.php";
                     <td class="left">
                         <?php echo $row->organizacion; ?>
                     </td>
+
+                    <td class="left">
+                        <?php echo $row->pais; ?>
+                    </td>
+
                     <td class="center">
                         <?php echo $row->total_poblacion; ?>
                     </td>

@@ -65,6 +65,7 @@ class Graphs{
             "morbidities" => $data
         );
 
+
         return $response;
 
     }
@@ -114,6 +115,7 @@ class Graphs{
     }
 
 
+
     /**
      * Retrieves the totals of the trainings by leaders and collaborators.
      * @return array
@@ -143,6 +145,40 @@ class Graphs{
 
         return $response;
     }
+
+
+    /**
+     * Retrieves the totals of the trainings by leaders and collaborators.
+     * @return array
+     */
+    public function getLeadersAndCollaboratorsTrainingByCountry(){
+        $data = $this->model->getLeadersAndCollaboratorsTrainingByCountry($this->intialTrim, $this->finalTrim, $this->intialYear, $this->finalYear, $this->organization);
+        $countryData = array();
+
+
+        foreach($data as $record){
+
+            // Create the record for the org. if not available.
+            if(array_key_exists($record->pais, $countryData) == false){
+                $countryData[$record->pais] = array();
+
+            }
+
+            array_push($countryData[$record->pais], array(
+                "capacitacion_colaboradores_terminado" => $record->capacitacion_colaboradores_terminado,
+                "capacitacion_lideres_terminado" => $record->capacitacion_lideres_terminado,
+                "year" => $record->year,
+                "trimester" => $record->trimester
+            ));
+
+        }
+
+        $response = $countryData;
+
+
+        return $response;
+    }
+
 
     /**
      * Retrieves the percenatges of the trainings by leaders and collaborators.
@@ -202,6 +238,42 @@ class Graphs{
 
 
     /**
+     * Retrieves the totals of
+     * @return array
+     */
+    public function getSurveysDataByCountry(){
+        $data = $this->model->getSurveysDataByCountry($this->intialTrim, $this->finalTrim, $this->intialYear, $this->finalYear, $this->organization);
+        $countryData = array();
+
+
+
+        foreach($data as $record){
+
+            // Create the record for the org. if not available.
+            if(array_key_exists($record->pais, $countryData) == false){
+                $countryData[$record->pais] = array();
+
+            }
+
+            array_push($countryData[$record->pais], array(
+                "healt_survey_totals" => $record->encuesta_salud,
+                "energy_survey_totals" => $record->encuesta_gestion_energia,
+                "wealth_survey_totals" => $record->encuesta_bienestar,
+                "programs_survey_totals" => $record->encuesta_programas_empresa,
+                "year" => $record->year,
+                "trimester" => $record->trimester
+            ));
+
+        }
+
+        $response = $countryData;
+
+        return $response;
+
+    }
+
+
+    /**
      * Retrieves the percenatges of the trainings by leaders and collaborators.
      * @return array
      */
@@ -227,6 +299,38 @@ class Graphs{
         }
 
         $response = $organizationsData;
+
+        return $response;
+
+    }
+
+
+    /**
+     * Retrieves the percenatges of the trainings by leaders and collaborators.
+     * @return array
+     */
+    public function getAbsentsByCountryAndDate(){
+        $data = $this->model->getAbsentsByCountryAndDate($this->intialTrim, $this->finalTrim, $this->intialYear, $this->finalYear, $this->organization);
+        $countriesData = array();
+
+
+        foreach($data as $record){
+
+            // Create the record for the org. if not available.
+            if(array_key_exists($record->pais, $countriesData) == false){
+                $countriesData[$record->pais] = array();
+
+            }
+
+            array_push($countriesData[$record->pais], array(
+                "total_absents" => $record->dias_ausentismo,
+                "year" => $record->year,
+                "trimester" => $record->trimester
+            ));
+
+        }
+
+        $response = $countriesData;
 
         return $response;
 
