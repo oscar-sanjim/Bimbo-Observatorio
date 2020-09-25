@@ -507,6 +507,16 @@
             top: 0;
             right: 30px;
 
+            @media only screen and (max-width: 768px) {
+              right:-82%;
+              top: unset;
+              display: block;
+              bottom: 0;
+              position: relative;
+              margin: 5px 0;
+
+            }
+
             .switch-title {
               font-size: 10px;
 

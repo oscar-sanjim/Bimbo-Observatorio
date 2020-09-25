@@ -490,6 +490,16 @@
   top: 0;
   right: 30px;
 }
+@media only screen and (max-width: 768px) {
+  .dashboard-main-container .dashboard-content-container .graphs-container .card-graph-container .card-title .switch {
+    right: -82%;
+    top: unset;
+    display: block;
+    bottom: 0;
+    position: relative;
+    margin: 5px 0;
+  }
+}
 .dashboard-main-container .dashboard-content-container .graphs-container .card-graph-container .card-title .switch .switch-title {
   font-size: 10px;
   position: relative;
