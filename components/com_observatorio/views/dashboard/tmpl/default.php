@@ -19,11 +19,16 @@ $document->addScript(JURI::base() . "components/com_observatorio/js/graphs_group
 $document->addScript(JURI::base() . "components/com_observatorio/js/graphs_group_two.js");
 $document->addScript(JURI::base() . "components/com_observatorio/js/graphs_group_three.js");
 $document->addScript(JURI::base() . "components/com_observatorio/js/graphs_group_four.js");
+$document->addScript(JURI::base() . "components/com_observatorio/js/graphs_group_programs.js");
 $document->addScript(JURI::base() . "components/com_observatorio/js/graphs.js");
+
+
+
 
 ?>
 
-<input type="hidden" value="<?php echo JURI::base() ?>" id="host">
+<input type="hidden" value="<?php echo JURI::base(); ?>" id="host">
+<input type="hidden" value="<?php echo $this->userCountry;  ?>" id="user-countries">
 
 <div class="dashboard-main-container">
 
@@ -85,9 +90,11 @@ $document->addScript(JURI::base() . "components/com_observatorio/js/graphs.js");
                          class="active">
                 </div>
                 <div class="menu-item-title">
-                    Indicadores Relacionados
+                    Modelos de Bienestar
                 </div>
             </div>
+
+
         </div>
 
     </div>
@@ -251,6 +258,8 @@ $document->addScript(JURI::base() . "components/com_observatorio/js/graphs.js");
 
             <!-- Graph container number one -->
             <div class="graph-group group-number-one">
+
+
                 <!-- First row of graphs -->
                 <div class="row">
                     <div class="col-md-8">
@@ -337,6 +346,44 @@ $document->addScript(JURI::base() . "components/com_observatorio/js/graphs.js");
                     </div>
 
                 </div>
+
+                <!-- Third row of graphs -->
+                <div class="row">
+
+                    <div class="col-md-8">
+                        <div class="card-graph-container">
+                            <div class="card-title">
+                                Total de Ausencias
+                                <label class="switch">
+                                    <input type="checkbox" class="grap-switcher">
+                                    <span class="slider round"></span>
+                                    <span class="switch-title organizations">Organización</span>
+                                    <span class="switch-title countries hide-title">País</span>
+                                </label>
+                            </div>
+                            <div id="graph-41" class="graph">
+
+                            </div>
+
+                            <div id="graph-46" class="graph hidden-graph">
+                                Gráficas
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card-graph-container">
+                            <div class="card-title">
+                                Porcentajes de ausencia
+                            </div>
+                            <div id="graph-42">
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
             </div>
 
 
@@ -509,7 +556,88 @@ $document->addScript(JURI::base() . "components/com_observatorio/js/graphs.js");
                 <!-- First row of graphs -->
                 <div class="row">
 
-                    <div class="col-md-8">
+                    <!-- General numeric stats -->
+                    <div class="col-md-12">
+                        <div class="general-stats-container large" id="programs-general-one">
+                            <div class="title">Programas Totales</div>
+                            <div class="value"></div>
+                        </div>
+
+                        <div class="general-stats-container large" id="programs-general-two">
+                            <div class="title">Participaciones Totales</div>
+                            <div class="value"></div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="card-graph-container">
+                            <div class="card-title">
+                                Programas por Pilar
+                            </div>
+                            <div id="graph-101">
+                                Gráficas
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-6">
+                        <div class="card-graph-container">
+                            <div class="card-title">
+                                Programas por Organización
+                            </div>
+                            <div id="graph-102">
+                                Gráficas
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="card-graph-container">
+                            <div class="card-title">
+                                Programas por Clasificación
+                            </div>
+                            <div id="graph-103">
+                                Gráficas
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="card-graph-container">
+                            <div class="card-title">
+                                Participaciones por Pilar
+                            </div>
+                            <div id="graph-104">
+                                Gráficas
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="card-graph-container">
+                            <div class="card-title">
+                                Participaciones por Organización
+                            </div>
+                            <div id="graph-105">
+                                Gráficas
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="card-graph-container">
+                            <div class="card-title">
+                                Participaciones por Clasificación
+                            </div>
+                            <div id="graph-106">
+                                Gráficas
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
                         <div class="card-graph-container">
                             <div class="card-title">
                                 Niveles de Cumplimiento
@@ -520,49 +648,10 @@ $document->addScript(JURI::base() . "components/com_observatorio/js/graphs.js");
                         </div>
                     </div>
 
-                    <div class="col-md-4">
-                        <div class="card-graph-container">
-                            <div class="card-title">
-                                Porcentajes de ausencia
-                            </div>
-                            <div id="graph-42">
-
-                            </div>
-                        </div>
-                    </div>
-
-
                 </div>
 
 
-                <!-- Second row of graphs -->
-                <div class="row">
-
-
-                    <div class="col-md-12">
-                        <div class="card-graph-container">
-                            <div class="card-title">
-                                Total de Ausencias
-                                <label class="switch">
-                                    <input type="checkbox" class="grap-switcher">
-                                    <span class="slider round"></span>
-                                    <span class="switch-title organizations">Organización</span>
-                                    <span class="switch-title countries hide-title">País</span>
-                                </label>
-                            </div>
-                            <div id="graph-41" class="graph">
-
-                            </div>
-
-                            <div id="graph-46" class="graph hidden-graph">
-                                Gráficas
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
             </div>
-
         </div>
     </div>
 </div>

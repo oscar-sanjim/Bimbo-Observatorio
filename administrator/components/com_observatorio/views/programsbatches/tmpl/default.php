@@ -19,7 +19,7 @@ require_once __DIR__ . "/../../../libs/constants.php";
 </div>
 
 <div id="j-main-container" class="span10">
-<form action="index.php?option=com_observatorio&view=batches" method="post" id="adminForm" name="adminForm">
+<form action="index.php?option=com_observatorio&view=programsbatches" method="post" id="adminForm" name="adminForm">
     <table class="table table-striped table-hover">
         <thead>
         <tr>
@@ -59,7 +59,7 @@ require_once __DIR__ . "/../../../libs/constants.php";
         <tbody>
         <?php if (!empty($this->items)) : ?>
             <?php foreach ($this->items as $i => $row) :
-                $link = JRoute::_('index.php?option=com_observatorio&task=batch.edit&id=' . $row->id);
+                $link = JRoute::_('index.php?option=com_observatorio&task=programsbatch.edit&id=' . $row->id);
                 ?>
 
                 <tr>

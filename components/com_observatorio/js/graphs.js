@@ -7,6 +7,9 @@ function getGroupGraphs(groupNumber) {
         graphTotalRiskPopulation();
         graphTotalByMorbidities();
         graphTotalByMedicalAttention();
+        graphAbsentsTypes();
+        graphTotalsAbsentsByCountry()
+        graphTotalsAbsents();
 
     }else if(groupNumber === "two"){
         graphTrainingLeadersAndCollaborators();
@@ -20,11 +23,15 @@ function getGroupGraphs(groupNumber) {
 
 
     }else if(groupNumber === "four"){
-        graphTotalsAbsents();
-        graphAbsentsTypes();
-        graphComplianceLevelByOrganization();
-        graphTotalsAbsentsByCountry()
 
+        graphComplianceLevelByOrganization();
+        graphTotalsProgramsPerPilar();
+        graphTotalsProgramsPerOrganization();
+        graphTotalsProgramsPerCategory();
+        graphTotalsParticipationsPerPilar();
+        graphTotalsParticipationsPerOrganization();
+        graphTotalsParticipationsPerCategory();
+        getProgramsGeneralData();
 
     }
 }

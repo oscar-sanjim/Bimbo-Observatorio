@@ -99,7 +99,6 @@ function graphTotalsAbsents() {
 
 function graphTotalsAbsentsByCountry() {
 
-
     var url = HOST + URI + getFiltersQueryString() + "&graph=total_absents_by_country_and_date";
     $.ajax({
         url: url,

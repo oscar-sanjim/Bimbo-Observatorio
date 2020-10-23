@@ -34,7 +34,20 @@ class ObservatorioViewDashboard extends JViewLegacy
             $app->redirect(JRoute::_(JURI::base(), false));
         }
 
-        $this->organizations = $this->get('Organizations');
+        // Getting the user data.
+        $customFields = FieldsHelper::getFields('com_users.user', JFactory::getUser(), false);
+        $this->userCountry = "";
+        foreach ($customFields as $field) {
+            if ($field->name == "country") {
+                $this->userCountry = $field->value;
+
+            }
+        }
+
+
+        $model = $this->getModel();
+
+        $this->organizations = $model->getOrganizations($this->userCountry);
         $this->datesData = $this->get('DatesData');
         $this->lastRecordDate = $this->get('LastRecordsDates');
 

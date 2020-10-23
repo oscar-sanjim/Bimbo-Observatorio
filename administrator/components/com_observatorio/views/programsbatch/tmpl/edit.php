@@ -11,7 +11,7 @@
 defined('_JEXEC') or die('Restricted access');
 
 ?>
-<form action="<?php echo JRoute::_('index.php?option=com_observatorio&layout=edit&id=' . (int) $this->item->id); ?>"
+<form action="<?php echo JRoute::_('index.php?option=com_observatorio&layout=edit&view=programsbatches&id=' . (int) $this->item->id); ?>"
       method="post" name="adminForm" id="adminForm"  enctype="multipart/form-data">
     <div class="form-horizontal">
         <fieldset class="adminform">

@@ -16,7 +16,7 @@ require_once __DIR__.'/../../helpers/observatorioHelper.php';
  *
  * @since  0.0.1
  */
-class ObservatorioViewBatches extends JViewLegacy
+class ObservatorioViewProgramsBatches extends JViewLegacy
 {
     /**
      * Display the Batches view
@@ -31,7 +31,7 @@ class ObservatorioViewBatches extends JViewLegacy
         $this->items		= $this->get('Items');
         $this->pagination	= $this->get('Pagination');
 
-        ObservatorioHelper::addSubmenu("batches");
+        ObservatorioHelper::addSubmenu("programsbatches");
         $this->sidebar = JHtmlSidebar::render();
 
         // Check for errors.
@@ -59,8 +59,8 @@ class ObservatorioViewBatches extends JViewLegacy
      */
     protected function addToolBar()
     {
-        JToolbarHelper::title('Cargas de Archivos');
-        JToolbarHelper::addNew('batch.add');
+        JToolbarHelper::title('Cargas de Archivos de Participaciones');
+        JToolbarHelper::addNew('programsbatch.add');
         JToolbarHelper::deleteList('Se eliminarán los registros asociados a estas cargas. ¿Desea continuar?', 'batches.delete');
     }
 }

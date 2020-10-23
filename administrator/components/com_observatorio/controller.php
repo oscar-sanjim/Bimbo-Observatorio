@@ -49,4 +49,27 @@ class ObservatorioController extends JControllerLegacy
         echo json_encode($response);
         die;
     }
+
+    function checkIfProgramsTrimesterExists(){
+
+        $year = $_GET['year'];
+        $trimester = $_GET['trimester'];
+
+        $model = $this->getModel('programsbatch');
+        $result = $model->checkIfTrimesterExists($trimester, $year);
+
+        if($result){
+            $response = array(
+                "status" => true
+            );
+
+        }else{
+            $response = array(
+                "status" => false
+            );
+        }
+
+        echo json_encode($response);
+        die;
+    }
 }

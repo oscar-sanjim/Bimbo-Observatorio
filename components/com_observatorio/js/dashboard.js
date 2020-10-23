@@ -35,6 +35,7 @@ function getFiltersQueryString() {
     var finalTrimester = jQuery("#final-trimester").val();
     var initialYear = jQuery("#initial-year").val();
     var finalYear = jQuery("#final-year").val();
+    var userCountries = jQuery("#user-countries").val();
 
     var organizationString = "&organization=";
     jQuery(".organization").each(function (index) {
@@ -47,9 +48,9 @@ function getFiltersQueryString() {
 
     //organizationString = encodeURIComponent(organizationString);
 
-    result = "&intialTrimester=" + initialTrimester + "&finalTrimester=" + finalTrimester + "&intialYear=" + initialYear + "&finalYear=" + finalYear + organizationString;
+    result = "&intialTrimester=" + initialTrimester + "&finalTrimester=" + finalTrimester + "&intialYear=" + initialYear + "&finalYear=" + finalYear + organizationString + "&userCountries="+userCountries;
 
-    console.log(result);
+    console.log("REQUEST URL: " + result);
 
     return result;
 

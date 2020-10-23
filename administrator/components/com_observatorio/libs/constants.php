@@ -49,4 +49,13 @@ class Constants
         "encuesta_programas_empresa" => 35,
     );
 
+    const CSVCOLUMNS_PROGRAMS = array(
+        'pais' => 0,
+        'organizacion' => 1,
+        'pilar' => 2,
+        'categoria' => 3,
+        'actividad' => 4,
+        'participacion' => 5
+    );
+
 }

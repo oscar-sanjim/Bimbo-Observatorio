@@ -77,6 +77,7 @@ class ObservatorioController extends JControllerLegacy
         $intialYear = $_GET['intialYear'];
         $finalYear = $_GET['finalYear'];
         $organizations = $_GET['organization'];
+        $userCountries = $_GET['userCountries'];
 
         $organizationsString = "";
         if($organizations != ""){
@@ -91,9 +92,22 @@ class ObservatorioController extends JControllerLegacy
 
         $organizationsString = rtrim($organizationsString, ',');
 
+        $userCountriesString = "";
+        if($userCountries != ""){
+            $userCountriesArray = explode(",", $userCountries);
+            foreach ($userCountriesArray as $index=>$item){
+                if($item != ""){
+                    $userCountriesString .= "'".$item."',";
+
+                }
+            }
+        }
+
+        $userCountriesString = rtrim($userCountriesString, ',');
+
         $model = $this->getModel('Dashboard');
 
-        $graphManager = new Graphs($model, $intialTrim, $finalTrim, $intialYear, $finalYear, $organizationsString);
+        $graphManager = new Graphs($model, $intialTrim, $finalTrim, $intialYear, $finalYear, $organizationsString, $userCountriesString);
         $data = array();
         switch ($graphName){
             case 'total_colaborators_in_risk':
@@ -146,6 +160,34 @@ class ObservatorioController extends JControllerLegacy
 
             case 'percentage_absents_by_type':
                 $data = $graphManager->percentageAbsentsByType();
+                break;
+
+            case 'total_programs_per_pilar':
+                $data = $graphManager->getProgramsPerPilar();
+                break;
+
+            case 'total_programs_per_organization':
+                $data = $graphManager->getProgramsPerOrganization();
+                break;
+
+            case 'total_programs_per_category':
+                $data = $graphManager->getProgramsPerCategory();
+                break;
+
+            case 'total_participations_per_organization':
+                $data = $graphManager->getParticipationsPerOrganization();
+                break;
+
+            case 'total_participations_per_pilar':
+                $data = $graphManager->getParticipationsPerPilar();
+                break;
+
+            case 'total_participations_per_category':
+                $data = $graphManager->getParticipationsPerCategory();
+                break;
+
+            case 'programs_general_data':
+                $data = $graphManager->getProgramsGeneralData();
                 break;
         }
 

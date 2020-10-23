@@ -2,7 +2,7 @@
 
 class Graphs{
 
-    function __construct($model, $intialTrim, $finalTrim, $intialYear, $finalYear, $organization)
+    function __construct($model, $intialTrim, $finalTrim, $intialYear, $finalYear, $organization, $userCountries)
     {
         $this->model = $model;
         $this->intialTrim = $intialTrim;
@@ -10,6 +10,7 @@ class Graphs{
         $this->intialYear = $intialYear;
         $this->finalYear = $finalYear;
         $this->organization = $organization;
+        $this->userCountries = $userCountries;
 
     }
 
@@ -18,7 +19,7 @@ class Graphs{
      * @return array
      */
     public function getCollaboratorsInRisk(){
-        $data = $this->model->groupGenericNumericValues($this->intialTrim, $this->finalTrim, $this->intialYear, $this->finalYear, $this->organization);
+        $data = $this->model->groupGenericNumericValues($this->intialTrim, $this->finalTrim, $this->intialYear, $this->finalYear, $this->organization, $this->userCountries);
         $response = array(
             "total" => $data->total,
             "total_risk" => $data->total_risk,
@@ -34,7 +35,7 @@ class Graphs{
      * @return array
      */
     public function getTotalsByMorbidity(){
-        $data = $this->model->groupByMorbility($this->intialTrim, $this->finalTrim, $this->intialYear, $this->finalYear, $this->organization);
+        $data = $this->model->groupByMorbility($this->intialTrim, $this->finalTrim, $this->intialYear, $this->finalYear, $this->organization, $this->userCountries);
 
         $total = 0;
         $morbidities = array();
@@ -76,7 +77,7 @@ class Graphs{
      * @return array
      */
     public function getCollaboratorsUnderMedicalAttention(){
-        $data = $this->model->getCollaboratorsUnderMedicalAttention($this->intialTrim, $this->finalTrim, $this->intialYear, $this->finalYear, $this->organization);
+        $data = $this->model->getCollaboratorsUnderMedicalAttention($this->intialTrim, $this->finalTrim, $this->intialYear, $this->finalYear, $this->organization, $this->userCountries);
 
 
         $response = $data;
@@ -90,7 +91,7 @@ class Graphs{
      * @return array
      */
     public function getComplianceLevels(){
-        $data = $this->model->getComplianceLevelsByOrganization($this->intialTrim, $this->finalTrim, $this->intialYear, $this->finalYear, $this->organization);
+        $data = $this->model->getComplianceLevelsByOrganization($this->intialTrim, $this->finalTrim, $this->intialYear, $this->finalYear, $this->organization, $this->userCountries);
         $organizationsData = array();
 
         foreach($data as $record){
@@ -121,7 +122,7 @@ class Graphs{
      * @return array
      */
     public function getLeadersAndCollaboratorsTraining(){
-        $data = $this->model->getLeadersAndCollaboratorsTraining($this->intialTrim, $this->finalTrim, $this->intialYear, $this->finalYear, $this->organization);
+        $data = $this->model->getLeadersAndCollaboratorsTraining($this->intialTrim, $this->finalTrim, $this->intialYear, $this->finalYear, $this->organization, $this->userCountries);
         $organizationsData = array();
 
         foreach($data as $record){
@@ -152,7 +153,7 @@ class Graphs{
      * @return array
      */
     public function getLeadersAndCollaboratorsTrainingByCountry(){
-        $data = $this->model->getLeadersAndCollaboratorsTrainingByCountry($this->intialTrim, $this->finalTrim, $this->intialYear, $this->finalYear, $this->organization);
+        $data = $this->model->getLeadersAndCollaboratorsTrainingByCountry($this->intialTrim, $this->finalTrim, $this->intialYear, $this->finalYear, $this->organization, $this->userCountries);
         $countryData = array();
 
 
@@ -185,7 +186,7 @@ class Graphs{
      * @return array
      */
     public function getLeadersTrainingPercentage(){
-        $data = $this->model->getLeadersTrainingPercentage($this->intialTrim, $this->finalTrim, $this->intialYear, $this->finalYear, $this->organization);
+        $data = $this->model->getLeadersTrainingPercentage($this->intialTrim, $this->finalTrim, $this->intialYear, $this->finalYear, $this->organization, $this->userCountries);
 
         return $data;
     }
@@ -196,7 +197,7 @@ class Graphs{
      * @return array
      */
     public function getCollaboratorsTrainingPercentage(){
-        $data = $this->model->getCollaboratorsTrainingPercentage($this->intialTrim, $this->finalTrim, $this->intialYear, $this->finalYear, $this->organization);
+        $data = $this->model->getCollaboratorsTrainingPercentage($this->intialTrim, $this->finalTrim, $this->intialYear, $this->finalYear, $this->organization, $this->userCountries);
 
         return $data;
     }
@@ -207,7 +208,7 @@ class Graphs{
      * @return array
      */
     public function getSurveysData(){
-        $data = $this->model->getSurveysData($this->intialTrim, $this->finalTrim, $this->intialYear, $this->finalYear, $this->organization);
+        $data = $this->model->getSurveysData($this->intialTrim, $this->finalTrim, $this->intialYear, $this->finalYear, $this->organization, $this->userCountries);
         $organizationsData = array();
 
 
@@ -242,7 +243,7 @@ class Graphs{
      * @return array
      */
     public function getSurveysDataByCountry(){
-        $data = $this->model->getSurveysDataByCountry($this->intialTrim, $this->finalTrim, $this->intialYear, $this->finalYear, $this->organization);
+        $data = $this->model->getSurveysDataByCountry($this->intialTrim, $this->finalTrim, $this->intialYear, $this->finalYear, $this->organization, $this->userCountries);
         $countryData = array();
 
 
@@ -278,7 +279,7 @@ class Graphs{
      * @return array
      */
     public function getAbsentsByOrganizationAndDate(){
-        $data = $this->model->getAbsentsByOrganizationAndDate($this->intialTrim, $this->finalTrim, $this->intialYear, $this->finalYear, $this->organization);
+        $data = $this->model->getAbsentsByOrganizationAndDate($this->intialTrim, $this->finalTrim, $this->intialYear, $this->finalYear, $this->organization, $this->userCountries);
         $organizationsData = array();
 
 
@@ -310,7 +311,7 @@ class Graphs{
      * @return array
      */
     public function getAbsentsByCountryAndDate(){
-        $data = $this->model->getAbsentsByCountryAndDate($this->intialTrim, $this->finalTrim, $this->intialYear, $this->finalYear, $this->organization);
+        $data = $this->model->getAbsentsByCountryAndDate($this->intialTrim, $this->finalTrim, $this->intialYear, $this->finalYear, $this->organization, $this->userCountries);
         $countriesData = array();
 
 
@@ -342,7 +343,7 @@ class Graphs{
      * @return array
      */
     public function percentageAbsentsByType(){
-        $data = $this->model->getPercentageByAbsentType($this->intialTrim, $this->finalTrim, $this->intialYear, $this->finalYear, $this->organization);
+        $data = $this->model->getPercentageByAbsentType($this->intialTrim, $this->finalTrim, $this->intialYear, $this->finalYear, $this->organization, $this->userCountries);
 
         $total = $data->type_general + $data->type_preventable + $data->type_mental;
 
@@ -355,6 +356,176 @@ class Graphs{
             "total_preventable" => $data->type_preventable,
             "total_mental" => $data->type_mental,
         );
+        return $response;
+    }
+
+
+
+    /**
+     * Retrieves the percenatges of the trainings by leaders and collaborators.
+     * @return array
+     */
+    public function getProgramsPerPilar(){
+        $data = $this->model->getProgramsPerPilar($this->intialTrim, $this->finalTrim, $this->intialYear, $this->finalYear, $this->organization, $this->userCountries);
+
+
+        $response = array();
+        foreach($data as $record){
+
+
+            array_push($response, array(
+                "pilar" => $record->pilar,
+                "total_programas" => $record->total_programas
+
+            ));
+
+        }
+
+
+        return $response;
+    }
+
+
+    /**
+     * Retrieves the percenatges of the trainings by leaders and collaborators.
+     * @return array
+     */
+    public function getProgramsPerOrganization(){
+        $data = $this->model->getProgramsPerOrganization($this->intialTrim, $this->finalTrim, $this->intialYear, $this->finalYear, $this->organization, $this->userCountries);
+
+
+        $response = array();
+        foreach($data as $record){
+
+
+            array_push($response, array(
+                "organizacion" => $record->organizacion,
+                "total_programas" => $record->total_programas
+
+            ));
+
+        }
+
+
+        return $response;
+    }
+
+
+    /**
+     * Retrieves the percenatges of the trainings by leaders and collaborators.
+     * @return array
+     */
+    public function getProgramsPerCategory(){
+        $data = $this->model->getProgramsPerCategory($this->intialTrim, $this->finalTrim, $this->intialYear, $this->finalYear, $this->organization, $this->userCountries);
+
+
+        $response = array();
+        foreach($data as $record){
+
+
+            array_push($response, array(
+                "categoria" => $record->categoria,
+                "total_programas" => $record->total_programas
+
+            ));
+
+        }
+
+
+        return $response;
+    }
+
+
+    /**
+     * Retrieves the percenatges of the trainings by leaders and collaborators.
+     * @return array
+     */
+    public function getParticipationsPerOrganization(){
+        $data = $this->model->getParticipationsPerOrganization($this->intialTrim, $this->finalTrim, $this->intialYear, $this->finalYear, $this->organization, $this->userCountries);
+
+
+        $response = array();
+        foreach($data as $record){
+
+
+            array_push($response, array(
+                "organizacion" => $record->organizacion,
+                "total_participaciones" => $record->total_participaciones
+
+            ));
+
+        }
+
+
+        return $response;
+    }
+
+
+    /**
+     * Retrieves the percenatges of the trainings by leaders and collaborators.
+     * @return array
+     */
+    public function getParticipationsPerPilar(){
+        $data = $this->model->getParticipationsPerPilar($this->intialTrim, $this->finalTrim, $this->intialYear, $this->finalYear, $this->organization, $this->userCountries);
+
+
+        $response = array();
+        foreach($data as $record){
+
+
+            array_push($response, array(
+                "pilar" => $record->pilar,
+                "total_participaciones" => $record->total_participaciones
+
+            ));
+
+        }
+
+
+        return $response;
+    }
+
+
+    /**
+     * Retrieves the percenatges of the trainings by leaders and collaborators.
+     * @return array
+     */
+    public function getParticipationsPerCategory(){
+        $data = $this->model->getParticipationsPerCategory($this->intialTrim, $this->finalTrim, $this->intialYear, $this->finalYear, $this->organization, $this->userCountries);
+
+
+        $response = array();
+        foreach($data as $record){
+
+
+            array_push($response, array(
+                "categoria" => $record->categoria,
+                "total_participaciones" => $record->total_participaciones
+
+            ));
+
+        }
+
+
+        return $response;
+    }
+
+
+    /**
+     * Retrieves the percenatges of the trainings by leaders and collaborators.
+     * @return array
+     */
+    public function getProgramsGeneralData(){
+        $data = $this->model->getProgramsGeneralData($this->intialTrim, $this->finalTrim, $this->intialYear, $this->finalYear, $this->organization, $this->userCountries);
+
+        $response = array(
+            "total_programas" => $data->total_programas,
+            "total_participaciones" => $data->total_participaciones
+
+        );
+
+
+
         return $response;
     }
 }

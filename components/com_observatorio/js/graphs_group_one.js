@@ -8,6 +8,7 @@
  */
 function graphTotalRiskPopulation() {
     var url = HOST + URI + getFiltersQueryString() + "&graph=total_colaborators_in_risk";
+    console.log("Graph request: " + url);
 
     $.ajax({
         url: url,
